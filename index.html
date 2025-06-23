@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosha Gohil - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <style>
+        /* --- Base & Typography --- */
+        body {
+            background-color: #F8F7F4; /* Light, earthy off-white */
+            color: #333;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-sans {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* --- Color Palette --- */
+        .text-heading { color: #2a2a2a; }
+        .text-body { color: #555; }
+        .bg-accent { background-color: #2c5248; } /* Muted Teal/Green */
+        .text-accent { color: #2c5248; }
+        .border-accent { border-color: #2c5248; }
+        .bg-section-alt { background-color: #FDFCFB; }
+
+        /* --- Background Image --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        body.bg-active::before {
+            opacity: 0.15; /* Controls the fade of the background */
+        }
+
+        /* --- Cover Page --- */
+        #cover-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F8F7F4;
+            z-index: 50;
+            cursor: pointer;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* --- Header --- */
+        header {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        header.scrolled {
+            background-color: rgba(248, 247, 244, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .nav-link {
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #2c5248;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #2c5248;
+        }
+
+        /* --- Hero Section --- */
+        #home {
+            min-height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* --- General Components --- */
+        .section-title {
+            letter-spacing: 0.05em;
+        }
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background-color: #2c5248;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #3a6b5d;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #2c5248;
+            border-color: #2c5248;
+        }
+        .btn-secondary:hover {
+            background-color: #2c5248;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+
+        /* --- Experience Timeline --- */
+        .timeline-container-pro {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .timeline-container-pro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            height: 100%;
+            width: 2px;
+            background: #e5e7eb;
+        }
+        .timeline-item-pro {
+            position: relative;
+            margin-left: 3rem;
+            margin-bottom: 3rem;
+        }
+        .timeline-item-pro:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot-pro {
+            content: '';
+            position: absolute;
+            left: -2.25rem;
+            top: 0.25rem;
+            height: 1.25rem;
+            width: 1.25rem;
+            background-color: #fff;
+            border: 4px solid #2c5248;
+            border-radius: 9999px;
+            z-index: 10;
+        }
+        
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .skill-item {
+            background-color: #f3f4f6;
+            color: #374151;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .skill-item i {
+            font-size: 1.25rem;
+        }
+        .cert-logo-container {
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+        }
+        .cert-logo-container img {
+             max-width: 100%;
+             max-height: 100%;
+             object-fit: contain;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    
+    <!-- Cover Page -->
+    <div id="cover-page">
+        <div class="text-center p-4">
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-heading">Kosha Gohil</h1>
+            <p class="text-lg md:text-xl mt-4 tracking-wider text-body">Cloud & Cybersecurity Professional</p>
+            <p class="mt-8 text-sm text-gray-400 animate-pulse">Click anywhere to enter</p>
+        </div>
+    </div>
+
+
+    <!-- Header -->
+    <header id="header" class="sticky top-0 z-30 px-4 sm:px-8 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl font-bold tracking-wider text-heading">KOSHA GOHIL</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#about" class="nav-link text-sm font-medium text-body">ABOUT</a>
+                <a href="#experience" class="nav-link text-sm font-medium text-body">EXPERIENCE</a>
+                <a href="#skills" class="nav-link text-sm font-medium text-body">SKILLS</a>
+                <a href="#projects" class="nav-link text-sm font-medium text-body">PROJECTS</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-body">CONTACT</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-btn" class="focus:outline-none">
+                     <svg class="w-6 h-6 text-heading" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8">
+        <button id="close-menu-btn" class="absolute top-6 right-6 focus:outline-none">
+             <svg class="w-6 h-6 text-heading" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <a href="#about" class="mobile-nav-link text-2xl font-bold text-heading">ABOUT</a>
+        <a href="#experience" class="mobile-nav-link text-2xl font-bold text-heading">EXPERIENCE</a>
+        <a href="#skills" class="mobile-nav-link text-2xl font-bold text-heading">SKILLS</a>
+        <a href="#projects" class="mobile-nav-link text-2xl font-bold text-heading">PROJECTS</a>
+        <a href="#contact" class="mobile-nav-link text-2xl font-bold text-heading">CONTACT</a>
+    </div>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section id="home" class="flex items-center container mx-auto px-4 sm:px-8 py-16 md:py-20">
+            <div class="relative z-10 grid md:grid-cols-5 gap-8 items-center">
+                <div class="md:col-span-3 text-center md:text-left">
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold text-heading leading-tight md:leading-snug">
+                        Designing and Defending Secure Cloud Architectures.
+                    </h1>
+                    <p class="mt-6 text-lg text-body max-w-xl mx-auto md:mx-0">
+                        Expert cybersecurity and cloud engineering services for businesses that demand resilience and reliability.
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                        <a href="#projects" class="btn btn-primary">EXPLORE MY WORK</a>
+                        <a href="./Kosha_Gohil_Resume_.pdf" download class="btn btn-secondary">DOWNLOAD RESUME</a>
+                    </div>
+                </div>
+                <div class="md:col-span-2 flex justify-center md:justify-end">
+                    <img src="https://placehold.co/500x600/e2e8f0/2a2a2a?text=Kosha+Gohil" alt="Kosha Gohil" class="rounded-lg shadow-2xl w-full max-w-xs sm:max-w-sm">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-8">
+                <div class="grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-2">
+                        <img src="https://placehold.co/600x750/e2e8f0/2a2a2a" alt="A photo of Kosha Gohil working" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    <div class="md:col-span-3">
+                        <h2 class="font-serif text-3xl font-bold text-heading section-title mb-6">About Me</h2>
+                        <div class="space-y-4 text-body text-lg text-justify">
+                            <p>With over 3 years of hands-on experience in technology, I am a passionate Cloud and Cybersecurity professional dedicated to architecting secure, resilient, and efficient digital ecosystems.</p>
+                            <p>My journey, culminating in a Master's in Cyber Security from Pace University, has equipped me with a robust skill set in cloud infrastructure, network defense, and identity management. I excel at transforming complex security challenges into scalable, business-driven solutions.</p>
+                            <p>I am currently seeking opportunities to apply my expertise to protect and empower organizations in the evolving digital landscape.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-4 sm:px-8">
+                <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-16">Career Journey</h2>
+                <div class="timeline-container-pro">
+                    <div class="timeline-item-pro">
+                        <div class="timeline-dot-pro"></div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                            <p class="font-sans text-sm font-semibold text-accent mb-1">Oct 2024 - Present</p>
+                            <h4 class="font-serif text-xl font-bold text-heading">Cloud Support Associate</h4>
+                            <p class="font-sans text-md text-body mb-3">Filmy AI, NY, US</p>
+                            <ul class="font-sans text-sm text-body space-y-2 list-disc list-inside">
+                                <li>Provided Tier 1 and Tier 2 support for cloud-hosted infrastructure, assisting clients with EC2, S3, IAM, RDS, VPC, and basic networking issues.</li>
+                                <li>Diagnosed and resolved incidents related to access failures, connectivity issues, billing concerns, and resource misconfigurations through the AWS Console and CLI.</li>
+                                <li>Guided customers through root cause analysis of performance bottlenecks and permissions errors.</li>
+                                <li>Helped clients implement basic infrastructure automation using CloudFormation and offered recommendations on cost optimization and high availability.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item-pro">
+                        <div class="timeline-dot-pro"></div>
+                         <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                            <p class="font-sans text-sm font-semibold text-accent mb-1">Aug 2024 - Oct 2024</p>
+                            <h4 class="font-serif text-xl font-bold text-heading">Cyber Security Analyst</h4>
+                            <p class="font-sans text-md text-body mb-3">Exchange IT, NY, US</p>
+                            <ul class="font-sans text-sm text-body space-y-2 list-disc list-inside">
+                                <li>Assessed and refined IAM policies to enforce least-privilege access, supporting a zero-trust security model.</li>
+                                <li>Conducted threat modeling for internal administrative platforms to identify and document privilege escalation risks.</li>
+                                <li>Analyzed system logs and authentication activity to detect abnormal login behavior and unauthorized access attempts.</li>
+                                <li>Contributed to SOC 2 audit readiness by validating access control procedures and logging configurations.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item-pro">
+                         <div class="timeline-dot-pro"></div>
+                         <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                            <p class="font-sans text-sm font-semibold text-accent mb-1">June 2020 - Aug 2022</p>
+                            <h4 class="font-serif text-xl font-bold text-heading">Network Systems Engineer</h4>
+                            <p class="font-sans text-md text-body mb-3">Skyline Developers Pvt. Ltd., Pune, India</p>
+                            <ul class="font-sans text-sm text-body space-y-2 list-disc list-inside">
+                                <li>Managed day-to-day operations of enterprise network infrastructure, including routers, switches, VLANs, and firewall configurations.</li>
+                                <li>Designed and deployed site-to-site and remote VPN solutions using pfSense and Cisco VPN.</li>
+                                <li>Performed network diagnostics to resolve routing issues, high-latency links, DNS failures, and packet loss.</li>
+                                <li>Collaborated with cloud engineers to build and maintain secure VPC architecture in AWS and Azure.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-8">
+                <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-12">Technical Expertise</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="skill-category">
+                        <h3 class="font-serif text-xl font-bold text-heading mb-4">Programming & Databases</h3>
+                        <div class="skill-list">
+                            <span class="skill-item"><i class="devicon-python-plain colored"></i>Python</span>
+                            <span class="skill-item"><i class="devicon-bash-plain"></i>Bash</span>
+                            <span class="skill-item"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                            <span class="skill-item"><i class="devicon-powershell-plain colored"></i>PowerShell</span>
+                            <span class="skill-item"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                            <span class="skill-item"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
+                            <span class="skill-item"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="font-serif text-xl font-bold text-heading mb-4">Cybersecurity & Networking</h3>
+                        <div class="skill-list">
+                            <span class="skill-item"><i class="devicon-splunk-original"></i>Splunk</span>
+                            <span class="skill-item">Snort</span>
+                            <span class="skill-item">Burp Suite</span>
+                            <span class="skill-item">Metasploit</span>
+                            <span class="skill-item">Nessus</span>
+                            <span class="skill-item">Wireshark</span>
+                            <span class="skill-item">Nmap</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="font-serif text-xl font-bold text-heading mb-4">Cloud (AWS) & Tools</h3>
+                        <div class="skill-list">
+                           <span class="skill-item"><i class="devicon-amazonwebservices-original colored"></i>EC2</span>
+                           <span class="skill-item"><i class="devicon-amazonwebservices-original colored"></i>S3</span>
+                           <span class="skill-item"><i class="devicon-amazonwebservices-original colored"></i>IAM</span>
+                           <span class="skill-item"><i class="devicon-amazonwebservices-original colored"></i>RDS</span>
+                           <span class="skill-item">VPC</span>
+                           <span class="skill-item"><i class="devicon-git-plain colored"></i>Git</span>
+                           <span class="skill-item"><i class="devicon-kubernetes-plain colored"></i>Kubernetes</span>
+                           <span class="skill-item"><i class="devicon-docker-plain colored"></i>Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-4 sm:px-8">
+                <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-12">Featured Work</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                        <h3 class="font-serif text-xl font-bold text-heading mb-2">ElasticCloud</h3>
+                        <p class="text-body text-sm">Engineered a production-ready serverless backend with Cognito and IAM, cutting infrastructure costs by 30%.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                        <h3 class="font-serif text-xl font-bold text-heading mb-2">AWS WAF Security</h3>
+                        <p class="text-body text-sm">Configured IP-based rules with AWS WAF to secure CloudFront distributions and control access at the edge.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                        <h3 class="font-serif text-xl font-bold text-heading mb-2">Network Traffic Analysis</h3>
+                        <p class="text-body text-sm">Used Athena to query VPC Flow Logs for traffic pattern analysis and connectivity troubleshooting.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                        <h3 class="font-serif text-xl font-bold text-heading mb-2">Serverless Contact Form</h3>
+                        <p class="text-body text-sm">Built a serverless contact submission pipeline with API Gateway, Lambda, and SES to handle user input.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                        <h3 class="font-serif text-xl font-bold text-heading mb-2">SecureAccess VPN Setup</h3>
+                        <p class="text-body text-sm">Deployed a secure remote access solution with Cisco VPN & pfSense, reducing unauthorized access by 50%.</p>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                    <a href="https://github.com/KoshaG0hil" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View All Projects on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+         <!-- Credentials Section -->
+        <section id="credentials" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-8">
+                <div class="mb-16">
+                    <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-8">Education</h2>
+                    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-center">
+                           <h3 class="font-serif text-xl font-bold text-heading">Pace University</h3>
+                           <p class="text-body font-semibold">Master of Science, Cyber Security</p>
+                           <p class="text-body text-sm mt-1">(2022 - 2024) | GPA: 3.91</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-center">
+                           <h3 class="font-serif text-xl font-bold text-heading">University of Pune</h3>
+                           <p class="text-body font-semibold">Bachelor of Engineering, Computer Engineering</p>
+                           <p class="text-body text-sm mt-1">(2018 - 2021)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certifications -->
+                <div>
+                     <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-8">Certifications</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center text-center">
+                             <div class="cert-logo-container">
+                               <img src="https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.634f8181692e9e78676b76e20c03dfa9175d6544.png" alt="AWS Solutions Architect - Associate Logo">
+                            </div>
+                            <p class="font-semibold text-body text-xs mt-2">AWS Solutions Architect</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center text-center">
+                             <div class="cert-logo-container">
+                                <img src="https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Cloud-Practitioner_badge.e3f192b92de233ea4b01e38954c2519544838392.png" alt="AWS Cloud Practitioner Logo">
+                            </div>
+                            <p class="font-semibold text-body text-xs mt-2">AWS Cloud Practitioner</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center text-center">
+                            <div class="cert-logo-container">
+                               <img src="https://images.credly.com/images/00634f82-b07f-437d-a48b-c91740909101/CompTIA_Security_2B_ce_Badge.png" alt="CompTIA Security+ Logo">
+                            </div>
+                            <p class="font-semibold text-body text-xs mt-2">CompTIA Security+</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center text-center">
+                            <div class="cert-logo-container">
+                               <img src="https://images.credly.com/images/be8f2e17-a835-41e3-b18f-a51351119424/cisco-ccna-600.png" alt="CCNA Logo">
+                            </div>
+                            <p class="font-semibold text-body text-xs mt-2">CCNA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-4 sm:px-8 text-center max-w-3xl">
+                 <h2 class="font-serif text-3xl font-bold text-heading section-title mb-4">Let's Connect</h2>
+                 <p class="text-body text-lg max-w-2xl mx-auto mb-8 text-justify">I'm currently open to new opportunities and collaborations. If you have a project in mind or just want to say hello, please fill out the form below.</p>
+                 <form id="contact-form" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none" required>
+                    </div>
+                    <div>
+                        <textarea name="message" id="message" rows="5" placeholder="Your Message" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none" required></textarea>
+                    </div>
+                    <div class="text-center">
+                         <button type="submit" class="btn btn-primary text-lg">Send Message</button>
+                    </div>
+                 </form>
+                 <div id="form-status" class="mt-4"></div>
+            </div>
+        </section>
+
+        <footer class="py-6 border-t border-gray-200">
+            <div class="container mx-auto text-center text-sm text-body">
+                <p>&copy; 2024 Kosha Gohil. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const coverPage = document.getElementById('cover-page');
+            const body = document.querySelector('body');
+            const header = document.getElementById('header');
+            const menuBtn = document.getElementById('menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-nav-link');
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            if(coverPage) {
+                coverPage.addEventListener('click', () => {
+                    coverPage.style.opacity = '0';
+                    setTimeout(() => {
+                        coverPage.style.display = 'none';
+                        body.classList.add('bg-active'); 
+                    }, 1000);
+                });
+            }
+            
+            if(header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 10) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+            
+            if(menuBtn && mobileMenu && closeMenuBtn) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.add('open');
+                });
+
+                closeMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                });
+                
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                    });
+                });
+            }
+            
+            if(contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+
+                    if (!name || !email || !message) {
+                        if(formStatus){
+                           formStatus.textContent = 'Please fill out all fields.';
+                           formStatus.style.color = 'red';
+                        }
+                        return;
+                    }
+                    
+                    const subject = `Message from ${name} via Portfolio`;
+                    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+                    const mailtoLink = `mailto:gohilkosha@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    
+                    window.location.href = mailtoLink;
+                    
+                     if(formStatus){
+                        formStatus.textContent = 'Thank you! Your email client has been opened.';
+                        formStatus.style.color = '#2c5248';
+                     }
+                    contactForm.reset();
+                });
+            }
+
+            const animatedSections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedSections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
