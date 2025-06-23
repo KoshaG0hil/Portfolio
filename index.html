@@ -32,42 +32,6 @@
         .border-accent { border-color: #2c5248; }
         .bg-section-alt { background-color: #FDFCFB; }
 
-        /* --- Background Image --- */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?q=80&w=2070');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-        body.bg-active::before {
-            opacity: 0.15; /* Controls the fade of the background */
-        }
-
-        /* --- Cover Page --- */
-        #cover-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #F8F7F4;
-            z-index: 50;
-            cursor: pointer;
-            transition: opacity 1s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
         /* --- Header --- */
         header {
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -117,6 +81,7 @@
             transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
             display: inline-block;
             border: 2px solid transparent;
+            text-align: center;
         }
         .btn-primary {
             background-color: #2c5248;
@@ -202,33 +167,24 @@
         .skill-item i {
             font-size: 1.25rem;
         }
-        .cert-logo-container {
-            height: 80px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            padding: 0.5rem;
+        .cert-card {
+             background-color: #FDFCFB;
+             padding: 1.5rem;
+             border-radius: 0.5rem;
+             border: 1px solid #e5e7eb;
+             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+             display: flex;
+             flex-direction: column;
+             justify-content: space-between;
+             transition: all 0.3s ease;
         }
-        .cert-logo-container img {
-             max-width: 100%;
-             max-height: 100%;
-             object-fit: contain;
+        .cert-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
 <body class="antialiased">
-    
-    <!-- Cover Page -->
-    <div id="cover-page">
-        <div class="text-center p-4">
-            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-heading">Kosha Gohil</h1>
-            <p class="text-lg md:text-xl mt-4 tracking-wider text-body">Cloud & Cybersecurity Professional</p>
-            <p class="mt-8 text-sm text-gray-400 animate-pulse">Click anywhere to enter</p>
-        </div>
-    </div>
-
 
     <!-- Header -->
     <header id="header" class="sticky top-0 z-30 px-4 sm:px-8 py-4">
@@ -261,7 +217,7 @@
         <a href="#contact" class="mobile-nav-link text-2xl font-bold text-heading">CONTACT</a>
     </div>
 
-    <main class="relative z-10">
+    <main>
         <!-- Hero Section -->
         <section id="home" class="flex items-center container mx-auto px-4 sm:px-8 py-16 md:py-20">
             <div class="relative z-10 grid md:grid-cols-5 gap-8 items-center">
@@ -278,7 +234,7 @@
                     </div>
                 </div>
                 <div class="md:col-span-2 flex justify-center md:justify-end">
-                    <img src="./edge.jpg" alt="Kosha Gohil" class="rounded-lg shadow-2xl w-full max-w-xs sm:max-w-sm">
+                    <img src="https://placehold.co/500x600/e2e8f0/2a2a2a?text=Kosha+Gohil" alt="Kosha Gohil" class="rounded-lg shadow-2xl w-full max-w-xs sm:max-w-sm">
                 </div>
             </div>
         </section>
@@ -288,7 +244,7 @@
             <div class="container mx-auto px-4 sm:px-8">
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-2">
-                        <img src="./aboutme.jpg" alt="A photo of Kosha Gohil working" class="rounded-lg shadow-xl w-full">
+                        <img src="https://placehold.co/600x750/e2e8f0/2a2a2a" alt="A photo of Kosha Gohil working" class="rounded-lg shadow-xl w-full">
                     </div>
                     <div class="md:col-span-3">
                         <h2 class="font-serif text-3xl font-bold text-heading section-title mb-6">About Me</h2>
@@ -434,6 +390,7 @@
          <!-- Credentials Section -->
         <section id="credentials" class="py-20 bg-white">
             <div class="container mx-auto px-4 sm:px-8">
+                <!-- Education -->
                 <div class="mb-16">
                     <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-8">Education</h2>
                     <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
@@ -453,29 +410,22 @@
                 <div>
                      <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-8">Certifications</h2>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center text-center">
-                             <div class="cert-logo-container">
-                               <img src="https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.634f8181692e9e78676b76e20c03dfa9175d6544.png" alt="AWS Solutions Architect - Associate Logo">
-                            </div>
-                            <p class="font-semibold text-body text-xs mt-2">AWS Solutions Architect</p>
+                        <div class="cert-card">
+                            <h4 class="font-semibold text-body text-center mb-4">AWS Solutions Architect</h4>
+                            <!-- Replace # with your actual badge link from Credly or AWS -->
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full text-xs">Verify Badge</a>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center text-center">
-                             <div class="cert-logo-container">
-                                <img src="https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Cloud-Practitioner_badge.e3f192b92de233ea4b01e38954c2519544838392.png" alt="AWS Cloud Practitioner Logo">
-                            </div>
-                            <p class="font-semibold text-body text-xs mt-2">AWS Cloud Practitioner</p>
+                        <div class="cert-card">
+                            <h4 class="font-semibold text-body text-center mb-4">AWS Cloud Practitioner</h4>
+                            <a href="https://www.credly.com/badges/829ad5b4-e1ef-4357-9a55-2a8535a10ea1/linked_in_profile" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full text-xs">Verify Badge</a>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center text-center">
-                            <div class="cert-logo-container">
-                               <img src="https://www.credly.com/badges/c25e340d-71ff-49e8-b856-a89746e71aad/public_url" alt="CompTIA Security+ Logo">
-                            </div>
-                            <p class="font-semibold text-body text-xs mt-2">CompTIA Security+</p>
+                        <div class="cert-card">
+                           <h4 class="font-semibold text-body text-center mb-4">CompTIA Security+</h4>
+                            <a href="https://www.credly.com/badges/c25e340d-71ff-49e8-b856-a89746e71aad/public_url" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full text-xs">Verify Badge</a>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col items-center justify-center text-center">
-                            <div class="cert-logo-container">
-                               <img src="https://images.credly.com/images/be8f2e17-a835-41e3-b18f-a51351119424/cisco-ccna-600.png" alt="CCNA Logo">
-                            </div>
-                            <p class="font-semibold text-body text-xs mt-2">CCNA</p>
+                        <div class="cert-card">
+                           <h4 class="font-semibold text-body text-center mb-4">CCNA</h4>
+                           <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full text-xs">Verify Badge</a>
                         </div>
                     </div>
                 </div>
@@ -486,7 +436,7 @@
         <section id="contact" class="py-20">
             <div class="container mx-auto px-4 sm:px-8 text-center max-w-3xl">
                  <h2 class="font-serif text-3xl font-bold text-heading section-title mb-4">Let's Connect</h2>
-                 <p class="text-body text-lg max-w-2xl mx-auto mb-8 text-justify">I'm currently open to new opportunities and collaborations. If you have a project in mind or just want to say hello, please fill out the form below.</p>
+                 <p class="text-body text-lg max-w-2xl mx-auto mb-8">I'm currently open to new opportunities and collaborations. If you have a project in mind or just want to say hello, please fill out the form below.</p>
                  <form id="contact-form" class="space-y-6">
                     <div class="grid sm:grid-cols-2 gap-6">
                         <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none" required>
@@ -513,7 +463,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const coverPage = document.getElementById('cover-page');
-            const body = document.querySelector('body');
             const header = document.getElementById('header');
             const menuBtn = document.getElementById('menu-btn');
             const closeMenuBtn = document.getElementById('close-menu-btn');
@@ -527,7 +476,6 @@
                     coverPage.style.opacity = '0';
                     setTimeout(() => {
                         coverPage.style.display = 'none';
-                        body.classList.add('bg-active'); 
                     }, 1000);
                 });
             }
