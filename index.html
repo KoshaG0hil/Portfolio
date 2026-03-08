@@ -1,593 +1,1056 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kosha Gohil - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
-        /* --- Base & Typography --- */
-        body {
-            background-color: #F8F7F4; /* Light, earthy off-white */
-            color: #333;
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .font-sans {
-            font-family: 'Inter', sans-serif;
-        }
+            /* --- Base & Typography --- */
+            body {
+                background-color: #F8F7F4; /* Light, earthy off-white */
+                color: #333;
+                font-family: 'Inter', sans-serif;
+                scroll-behavior: smooth;
+            }
+            .font-serif {
+                font-family: 'Playfair Display', serif;
+            }
+            .font-sans {
+                font-family: 'Inter', sans-serif;
+            }
 
-        /* --- Color Palette --- */
-        .text-heading { color: #2a2a2a; }
-        .text-body { color: #555; }
-        .bg-accent { background-color: #2c5248; } /* Muted Teal/Green */
-        .text-accent { color: #2c5248; }
-        .border-accent { border-color: #2c5248; }
-        .bg-section-alt { background-color: #FDFCFB; }
-        
-        /* --- Header --- */
-        header {
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        header.scrolled {
-            background-color: rgba(248, 247, 244, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .nav-link {
-            letter-spacing: 0.1em;
-            transition: color 0.3s ease;
-            position: relative;
-            padding-bottom: 4px;
-        }
-        .nav-link::after {
-            content: '';e
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #2c5248;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .nav-link:hover {
-            color: #2c5248;
-        }
+            /* --- Color Palette --- */
+            .text-heading { color: #2a2a2a; }
+            .text-body { color: #555; }
+            .bg-accent { background-color: #2c5248; } /* Muted Teal/Green */
+            .text-accent { color: #2c5248; }
+            .border-accent { border-color: #2c5248; }
+            .bg-section-alt { background-color: #FDFCFB; }
 
-        /* --- Hero Section --- */
-        #home {
-            min-height: 90vh;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* --- General Components --- */
-        .section-title {
-            letter-spacing: 0.05em;
-        }
-        .btn {
-            padding: 0.75rem 2rem;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-            display: inline-block;
-            border: 2px solid transparent;
-            text-align: center;
-        }
-        .btn-primary {
-            background-color: #2c5248;
-            color: #fff;
-        }
-        .btn-primary:hover {
-            background-color: #3a6b5d;
-            transform: translateY(-2px);
-        }
-        .btn-secondary {
-            background-color: transparent;
-            color: #2c5248;
-            border-color: #2c5248;
-        }
-        .btn-secondary:hover {
-            background-color: #2c5248;
-            color: #fff;
-            transform: translateY(-2px);
-        }
+            /* --- Header --- */
+            header {
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            }
+            header.scrolled {
+                background-color: rgba(248, 247, 244, 0.95);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            }
+            .nav-link {
+                letter-spacing: 0.1em;
+                transition: color 0.3s ease;
+                position: relative;
+                padding-bottom: 4px;
+            }
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: #2c5248;
+                transition: width 0.3s ease;
+            }
+            .nav-link:hover::after {
+                width: 100%;
+            }
+            .nav-link:hover {
+                color: #2c5248;
+            }
+
+            /* --- Hero Section --- */
+            #home {
+                min-height: 90vh;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* --- General Components --- */
+            .section-title {
+                letter-spacing: 0.05em;
+            }
+            .btn {
+                padding: 0.75rem 2rem;
+                border-radius: 4px;
+                font-weight: 500;
+                transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+                display: inline-block;
+                border: 2px solid transparent;
+                text-align: center;
+            }
+            .btn-primary {
+                background-color: #2c5248;
+                color: #fff;
+            }
+            .btn-primary:hover {
+                background-color: #3a6b5d;
+                transform: translateY(-2px);
+            }
+            .btn-secondary {
+                background-color: transparent;
+                color: #2c5248;
+                border-color: #2c5248;
+            }
+            .btn-secondary:hover {
+                background-color: #2c5248;
+                color: #fff;
+                transform: translateY(-2px);
+            }
 
 
-        /* --- Experience Timeline --- */
-        .timeline-container-pro {
-            position: relative;
-            padding: 2rem 0;
-        }
-        .timeline-container-pro::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 1rem;
-            height: 100%;
-            width: 2px;
-            background: #e5e7eb;
-        }
-        .timeline-item-pro {
-            position: relative;
-            margin-left: 3rem;
-            margin-bottom: 3rem;
-        }
-        .timeline-item-pro:last-child {
-            margin-bottom: 0;
-        }
-        .timeline-dot-pro {
-            content: '';
-            position: absolute;
-            left: -2.25rem;
-            top: 0.25rem;
-            height: 1.25rem;
-            width: 1.25rem;
-            background-color: #fff;
-            border: 4px solid #2c5248;
-            border-radius: 9999px;
-            z-index: 10;
-        }
-        
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-        #mobile-menu.open {
-            transform: translateX(0);
-        }
-        .skill-category {
-            margin-bottom: 2rem;
-        }
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-        .skill-item {
-            background-color: #f3f4f6;
-            color: #374151;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .skill-item i {
-            font-size: 1.25rem;
-        }
-        .cert-card {
-             background-color: #FDFCFB;
-             padding: 1.5rem;
-             border-radius: 0.5rem;
-             border: 1px solid #e5e7eb;
-             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-             display: flex;
-             flex-direction: column;
-             justify-content: space-between;
-             transition: all 0.3s ease;
-        }
-        .cert-card:hover {
-             transform: translateY(-5px);
-             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
-        }
+            /* --- Experience Timeline ---
+            .timeline-container-pro {
+                position: relative;
+                padding: 2rem 0;
+            }
+            .timeline-container-pro::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 1rem;
+                height: 100%;
+                width: 2px;
+                background: #e5e7eb;
+            }
+            .timeline-item-pro {
+                position: relative;
+                margin-left: 3rem;
+                margin-bottom: 3rem;
+            }
+            .timeline-item-pro:last-child {
+                margin-bottom: 0;
+            }
+            .timeline-dot-pro {
+                content: '';
+                position: absolute;
+                left: -2.25rem;
+                top: 0.25rem;
+                height: 1.25rem;
+                width: 1.25rem;
+                background-color: #fff;
+                border: 4px solid #2c5248;
+                border-radius: 9999px;
+                z-index: 10;
+            } */
+
+            /* Experience content styling */
+
+      .timeline-item-pro h3 {
+          font-size: 20px;
+          font-weight: 600;
+          color: #111827;
+          margin-bottom: 4px;
+      }
+
+      .timeline-company {
+          font-size: 15px;
+          font-weight: 500;
+          color: #2c5248;
+      }
+
+      .timeline-date {
+          font-size: 14px;
+          color: #6b7280;
+          margin-bottom: 10px;
+      }
+
+      .timeline-item-pro ul {
+          padding-left: 18px;
+          margin-top: 8px;
+      }
+
+      .timeline-item-pro li {
+          margin-bottom: 6px;
+          line-height: 1.5;
+          color: #374151;
+      }
+
+            /* Mobile Menu */
+            #mobile-menu {
+                transition: transform 0.3s ease-in-out;
+                transform: translateX(100%);
+            }
+            #mobile-menu.open {
+                transform: translateX(0);
+            }
+            .skill-category {
+                margin-bottom: 2rem;
+            }
+            .skill-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+            .skill-item {
+                background-color: #f3f4f6;
+                color: #374151;
+                padding: 0.5rem 1rem;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .skill-item i {
+                font-size: 1.25rem;
+            }
+            .cert-card {
+                 background-color: #FDFCFB;
+                 padding: 1.5rem;
+                 border-radius: 0.5rem;
+                 border: 1px solid #e5e7eb;
+                 box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+                 display: flex;
+                 flex-direction: column;
+                 justify-content: space-between;
+                 transition: all 0.3s ease;
+            }
+            .cert-card:hover {
+                 transform: translateY(-5px);
+                 box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+            }
     </style>
-</head>
-<body class="antialiased">
-
+  </head>
+  <body class="antialiased">
     <!-- Header -->
     <header id="header" class="sticky top-0 z-30 px-4 sm:px-8 py-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="font-serif text-2xl font-bold tracking-wider text-heading">KOSHA GOHIL</a>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#about" class="nav-link text-sm font-medium text-body">ABOUT</a>
-                <a href="#experience" class="nav-link text-sm font-medium text-body">EXPERIENCE</a>
-                <a href="#skills" class="nav-link text-sm font-medium text-body">SKILLS</a>
-                <a href="#projects" class="nav-link text-sm font-medium text-body">PROJECTS</a>
-                <a href="#contact" class="nav-link text-sm font-medium text-body">CONTACT</a>
-            </nav>
-            <div class="md:hidden">
-                <button id="menu-btn" class="focus:outline-none">
-                     <svg class="w-6 h-6 text-heading" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
-        </div>
+      <div class="container mx-auto flex justify-between items-center">
+        <a
+          href="#"
+          class="font-serif text-2xl font-bold tracking-wider text-heading"
+          >KOSHA GOHIL</a
+        >
+        <nav class="hidden md:flex space-x-6">
+          <a href="#about" class="nav-link text-sm font-medium text-body"
+            >ABOUT</a
+          >
+          <a href="#experience" class="nav-link text-sm font-medium text-body"
+            >EXPERIENCE</a
+          >
+          <a href="#skills" class="nav-link text-sm font-medium text-body"
+            >SKILLS</a
+          >
+          <a href="#projects" class="nav-link text-sm font-medium text-body"
+            >PROJECTS</a
+          >
+          <a href="#contact" class="nav-link text-sm font-medium text-body"
+            >CONTACT</a
+          >
+        </nav>
+          
+          <div class="md:hidden">
+          <button id="menu-btn" class="focus:outline-none" aria-label="Open menu">
+        <svg
+         class="w-6 h-6 text-heading"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+</div>
+      </div>
     </header>
-    
+
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8">
-        <button id="close-menu-btn" class="absolute top-6 right-6 focus:outline-none">
-             <svg class="w-6 h-6 text-heading" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <a href="#about" class="mobile-nav-link text-2xl font-bold text-heading">ABOUT</a>
-        <a href="#experience" class="mobile-nav-link text-2xl font-bold text-heading">EXPERIENCE</a>
-        <a href="#skills" class="mobile-nav-link text-2xl font-bold text-heading">SKILLS</a>
-        <a href="#projects" class="mobile-nav-link text-2xl font-bold text-heading">PROJECTS</a>
-        <a href="#contact" class="mobile-nav-link text-2xl font-bold text-heading">CONTACT</a>
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8"
+    >
+      <button id="close-menu-btn" class="absolute top-6 right-6 focus:outline-none" >
+        <svg>
+          class="w-6 h-6 text-heading"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          <path d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <a href="#about" class="mobile-nav-link text-2xl font-bold text-heading"
+        >ABOUT</a
+      >
+      <a
+        href="#experience"
+        class="mobile-nav-link text-2xl font-bold text-heading"
+        >EXPERIENCE</a
+      >
+      <a href="#skills" class="mobile-nav-link text-2xl font-bold text-heading"
+        >SKILLS</a
+      >
+      <a
+        href="#projects"
+        class="mobile-nav-link text-2xl font-bold text-heading"
+        >PROJECTS</a
+      >
+      <a href="#contact" class="mobile-nav-link text-2xl font-bold text-heading"
+        >CONTACT</a
+      >
     </div>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="flex items-center container mx-auto px-4 sm:px-8 py-16 md:py-20">
-            <div class="relative z-10 grid md:grid-cols-5 gap-8 items-center">
-                <div class="md:col-span-3 text-center md:text-left">
-                    <h1 class="font-serif text-4xl sm:text-5xl font-bold text-heading leading-tight md:leading-snug">
-                        Designing and Defending Secure Cloud Architectures.
-                    </h1>
-                    <p class="mt-6 text-lg text-body max-w-xl mx-auto md:mx-0">
-                        Expert cybersecurity and cloud engineering services for businesses that demand resilience and reliability.
-                    </p>
-                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-                        <a href="#projects" class="btn btn-primary">EXPLORE MY WORK</a>
-                        <a href="./Kosha_Gohil_Cloud.docx" download class="btn btn-secondary">DOWNLOAD RESUME</a>
-                    </div>
-                </div>
-                <div class="md:col-span-2 flex justify-center md:justify-end">
-                    <img src="./edge.jpg" alt="Kosha Gohil" class="rounded-lg shadow-2xl w-full max-w-xs sm:max-w-sm">
-                </div>
+      <!-- Hero Section -->
+      <section
+        id="home"
+        class="flex items-center container mx-auto px-4 sm:px-8 py-16 md:py-20"
+      >
+        <div class="relative z-10 grid md:grid-cols-5 gap-8 items-center">
+          <div class="md:col-span-3 text-center md:text-left">
+            <h1
+              class="font-serif text-4xl sm:text-5xl font-bold text-heading leading-tight md:leading-snug"
+            >
+              Designing and Defending Secure Cloud Architectures.
+            </h1>
+            <p class="mt-6 text-lg text-body max-w-xl mx-auto md:mx-0">
+              Expert cybersecurity and cloud engineering services for businesses
+              that demand resilience and reliability.
+            </p>
+            <div
+              class="mt-8 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4"
+            >
+              <a href="#projects" class="btn btn-primary">EXPLORE MY WORK</a>
+              <a
+                href="./Kosha Gohil _Resume.pdf"
+                download
+                class="btn btn-secondary"
+                >DOWNLOAD RESUME</a
+              >
             </div>
-        </section>
+          </div>
+          <div class="md:col-span-2 flex justify-center md:justify-end">
+            <img
+              src="Images/edge.jpg"
+              alt="Kosha Gohil"
+              class="rounded-lg shadow-2xl w-full max-w-xs sm:max-w-sm"
+            />
+          </div>
+        </div>
+      </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="py-20 bg-white">
-            <div class="container mx-auto px-4 sm:px-8">
-                <div class="grid md:grid-cols-5 gap-12 items-center">
-                    <div class="md:col-span-2">
-                        <img src="./aboutme.jpg" alt="A photo of Kosha Gohil working" class="rounded-lg shadow-xl w-full">
-                    </div>
-                    <div class="md:col-span-3">
-                        <h2 class="font-serif text-3xl font-bold text-heading section-title mb-6">About Me</h2>
-                        <div class="space-y-4 text-body text-lg text-justify">
-                            <p>With over 4 years of hands-on experience in technology, I am a passionate Cloud and Cybersecurity professional dedicated to architecting secure, resilient, and efficient digital ecosystems.</p>
-                            <p>My journey, culminating in a Master's in Cyber Security from Pace University, has equipped me with a robust skill set in cloud infrastructure, network defense, and identity management. I excel at transforming complex security challenges into scalable, business-driven solutions.</p>
-                            <p>I am currently seeking opportunities to apply my expertise to protect and empower organizations in the evolving digital landscape.</p>
-                        </div>
-                    </div>
-                </div>
+      <!-- About Me Section -->
+      <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-8">
+          <div class="grid md:grid-cols-5 gap-12 items-center">
+            <div class="md:col-span-2">
+              <img
+                src="Images/aboutme.jpg"
+                alt="A photo of Kosha Gohil working"
+                class="rounded-lg shadow-xl w-full"
+              />
             </div>
-        </section>
-        <!-- Experience Section -->
-<section id="experience" class="py-20">
-  <div class="container mx-auto px-4 sm:px-8">
-    <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-16">Career Journey</h2>
-    <div class="timeline-container-pro">
-      
-      <!-- FilmyAI -->
-      <div class="timeline-item-pro">
-        <div class="timeline-dot-pro"></div>
-        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-          <p class="font-sans text-sm font-semibold text-accent mb-1">Oct 2024 – Present</p>
-          <h4 class="font-serif text-xl font-bold text-heading">Cloud & Data Engineer</h4>
-          <p class="font-sans text-md text-body mb-3">Filmy AI | New York, US</p>
-          <ul class="font-sans text-sm text-body space-y-2 list-disc list-inside">
-            <li>Designed and maintained data pipelines on AWS (Redshift, S3, DynamoDB, Lambda) to automate ingestion and reporting, cutting manual effort by 50%.</li>
-            <li>Developed Tableau and QuickSight dashboards to monitor logistics KPIs, improving SLA compliance by 12% and enabling faster executive decision-making.</li>
-            <li>Implemented Airflow workflows for scheduling and monitoring ETL jobs, ensuring high pipeline reliability and scalability.</li>
-            <li>Conducted regression analysis and time-series forecasting in R/Python to improve routing strategies and operational efficiency.</li>
-            <li>Partnered with DevOps teams to integrate CI/CD practices for analytics code and infrastructure, enhancing release velocity and governance.</li>
-          </ul>
+            <div class="md:col-span-3">
+              <h2
+                class="font-serif text-3xl font-bold text-heading section-title mb-6"
+              >
+                About Me
+              </h2>
+              <div class="space-y-4 text-body text-lg text-justify">
+                <p>
+                  With over 4 years of hands-on experience in technology, I am a
+                  passionate Cloud and Cybersecurity professional dedicated to
+                  architecting secure, resilient, and efficient digital
+                  ecosystems.
+                </p>
+                <p>
+                  My journey, culminating in a Master's in Cyber Security from
+                  Pace University, has equipped me with a robust skill set in
+                  cloud infrastructure, network defense, and identity
+                  management. I excel at transforming complex security
+                  challenges into scalable, business-driven solutions.
+                </p>
+                <p>
+                  I am currently seeking opportunities to apply my expertise to
+                  protect and empower organizations in the evolving digital
+                  landscape.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Exchange IT -->
-      <div class="timeline-item-pro">
-        <div class="timeline-dot-pro"></div>
-        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-          <p class="font-sans text-sm font-semibold text-accent mb-1">May 2023 – Oct 2024</p>
-          <h4 class="font-serif text-xl font-bold text-heading">Cloud Engineer</h4>
-          <p class="font-sans text-md text-body mb-3">Exchange IT | New York, US</p>
-          <ul class="font-sans text-sm text-body space-y-2 list-disc list-inside">
-            <li>Automated ETL workflows across Redshift, S3, and BigQuery using Python, reducing reporting cycles by 60%.</li>
-            <li>Hardened cloud environments by refining IAM policies, implementing RBAC, and supporting SOC 2/HIPAA compliance audits.</li>
-            <li>Optimized data pipelines and built monitoring dashboards (Tableau, MicroStrategy) to improve performance visibility and executive decision-making.</li>
-            <li>Implemented CI/CD automation with Terraform and AWS CodePipeline, enabling secure, reliable infrastructure deployments.</li>
-          </ul>
-        </div>
-      </div>
+      <section id="experience" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-8">
+          <h2
+            class="font-serif text-3xl font-bold text-heading text-center mb-6"
+          >
+            Career Journey
+          </h2>
 
-      <!-- Skyline -->
-      <div class="timeline-item-pro">
-        <div class="timeline-dot-pro"></div>
-        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-          <p class="font-sans text-sm font-semibold text-accent mb-1">Jun 2020 – Jul 2022</p>
-          <h4 class="font-serif text-xl font-bold text-heading">Network Systems Engineer</h4>
-          <p class="font-sans text-md text-body mb-3">Skyline Developers Pvt. Ltd. | Pune, India</p>
-          <ul class="font-sans text-sm text-body space-y-2 list-disc list-inside">
-            <li>Managed enterprise network infrastructure (routers, switches, VLANs, firewalls), ensuring 99.9% uptime and secure connectivity.</li>
-            <li>Designed and deployed VPN solutions (site-to-site, remote) with pfSense and Cisco, strengthening secure remote access.</li>
-            <li>Diagnosed and resolved routing, DNS, and high-latency issues, improving system performance and reliability.</li>
-            <li>Partnered with cloud teams to extend on-prem infrastructure into AWS and Azure VPCs, enabling hybrid-cloud operations.</li>
-          </ul>
-        </div>
-      </div>
+          <div class="timeline-container-pro space-y-10">
+            <!-- Cloud Security Engineer -->
+            <div class="timeline-item-pro flex gap-6 items-start">
+              <div class="timeline-dot-pro mt-2"></div>
 
-    </div>
-  </div>
-</section>
+              <div
+                class="bg-white p-8 rounded-xl border border-gray-100 shadow-lg hover:shadow-xl transition duration-300 w-full"
+              >
+                <h4 class="font-serif text-2xl font-bold text-heading mb-1">
+                  Cloud Security Engineer
+                </h4>
 
+                <p class="text-sm font-semibold text-accent mb-2">
+                  Jan 2025 – Present
+                </p>
+
+                <p class="text-sm text-gray-500 mb-4">
+                  Woodhull Rx Center • New York
+                </p>
+
+                <ul
+                  class="text-sm text-gray-600 space-y-3 leading-relaxed list-disc pl-5"
+                >
+                  <li>
+                    Architected secure, event-driven AWS platforms using Lambda,
+                    S3, Glue, and EventBridge to process HIPAA-regulated
+                    pharmacy data with strong encryption and access controls.
+                  </li>
+                  <li>
+                    Re-engineered IAM policies and workload permissions,
+                    reducing cloud compute and access-related costs by ~25%
+                    while strengthening security posture.
+                  </li>
+                  <li>
+                    Developed Python automation to validate IAM permissions and
+                    detect configuration drift, proactively eliminating
+                    recurring security risks.
+                  </li>
+                  <li>
+                    Built scalable multi-environment infrastructure using
+                    Terraform across dev, staging, and production environments.
+                  </li>
+                  <li>
+                    Implemented production observability using CloudWatch
+                    metrics, logs, and alarms, enabling faster incident
+                    detection and operational visibility.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Cloud Support Associate -->
+            <div class="timeline-item-pro flex gap-6 items-start">
+              <div class="timeline-dot-pro mt-2"></div>
+
+              <div
+                class="bg-white p-8 rounded-xl border border-gray-100 shadow-lg hover:shadow-xl transition duration-300 w-full"
+              >
+                <h4 class="font-serif text-2xl font-bold text-heading mb-1">
+                  Cloud Support Associate
+                </h4>
+                <p class="text-sm font-semibold text-accent mb-2">
+                  Oct 2024 – Jul 2025
+                </p>
+                <p class="text-sm text-gray-500 mb-4">Filmy AI • Remote</p>
+
+                <ul
+                  class="text-sm text-gray-600 space-y-3 leading-relaxed list-disc pl-5"
+                >
+                  <li>
+                    Operated and stabilized AWS microservices (Lambda, API
+                    Gateway, EC2) supporting AI-driven cloud applications in
+                    production environments.
+                  </li>
+                  <li>
+                    Managed CI/CD pipelines and deployment workflows,
+                    significantly improving deployment reliability and reducing
+                    operational incidents.
+                  </li>
+                  <li>
+                    Automated infrastructure provisioning using Terraform and
+                    Python, accelerating environment setup and reducing manual
+                    engineering effort.
+                  </li>
+                  <li>
+                    Supported containerized workloads using Docker and ECS/EKS
+                    to ensure scalable and resilient application deployments.
+                  </li>
+                  <li>
+                    Partnered with engineering teams to troubleshoot
+                    infrastructure, deployment, and runtime issues impacting
+                    production systems.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Network Systems Engineer -->
+            <div class="timeline-item-pro flex gap-6 items-start">
+              <div class="timeline-dot-pro mt-2"></div>
+
+              <div
+                class="bg-white p-8 rounded-xl border border-gray-100 shadow-lg hover:shadow-xl transition duration-300 w-full"
+              >
+                <h4 class="font-serif text-2xl font-bold text-heading mb-1">
+                  Network Systems Engineer
+                </h4>
+                <p class="text-sm font-semibold text-accent mb-2">
+                  Jul 2020 – Apr 2022
+                </p>
+
+                <p class="text-sm text-gray-500 mb-4">
+                  Skyline Developers Pvt. Ltd • India
+                </p>
+
+                <ul
+                  class="text-sm text-gray-600 space-y-3 leading-relaxed list-disc pl-5"
+                >
+                  <li>
+                    Engineered and maintained enterprise networking
+                    infrastructure including routers, switches, VLANs, and
+                    firewalls.
+                  </li>
+                  <li>
+                    Designed secure VPN connectivity using pfSense and Cisco
+                    technologies to support remote and site-to-site access.
+                  </li>
+                  <li>
+                    Diagnosed complex routing, DNS, and latency issues to
+                    maintain high system availability and network performance.
+                  </li>
+                  <li>
+                    Collaborated with cloud teams to integrate on-prem networks
+                    with AWS and Azure environments for hybrid-cloud
+                    connectivity.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         
-        <!-- Skills Section -->
-        <section id="skills" class="py-20 bg-white">
-            <div class="container mx-auto px-4 sm:px-8">
-                <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-12">Technical Expertise</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="skill-category">
-                        <h3 class="font-serif text-xl font-bold text-heading mb-4">Programming & Databases</h3>
-                        <div class="skill-list">
-                            <span class="skill-item"><i class="devicon-python-plain colored"></i>Python</span>
-                            <span class="skill-item"><i class="devicon-bash-plain"></i>Bash</span>
-                            <span class="skill-item"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
-                            <span class="skill-item"><i class="devicon-powershell-plain colored"></i>PowerShell</span>
-                            <span class="skill-item"><i class="devicon-mysql-plain colored"></i>MySQL</span>
-                            <span class="skill-item"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
-                            <span class="skill-item"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3 class="font-serif text-xl font-bold text-heading mb-4">Cybersecurity & Networking</h3>
-                        <div class="skill-list">
-                            <span class="skill-item"><i class="devicon-splunk-original"></i>Splunk</span>
-                            <span class="skill-item">Snort</span>
-                            <span class="skill-item">Burp Suite</span>
-                            <span class="skill-item">Metasploit</span>
-                            <span class="skill-item">Nessus</span>
-                            <span class="skill-item">Wireshark</span>
-                            <span class="skill-item">Nmap</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3 class="font-serif text-xl font-bold text-heading mb-4">Cloud (AWS) & Tools</h3>
-                        <div class="skill-list">
-                           <span class="skill-item"><i class="devicon-amazonwebservices-original colored"></i>EC2</span>
-                           <span class="skill-item"><i class="devicon-amazonwebservices-original colored"></i>S3</span>
-                           <span class="skill-item"><i class="devicon-amazonwebservices-original colored"></i>IAM</span>
-                           <span class="skill-item"><i class="devicon-amazonwebservices-original colored"></i>RDS</span>
-                           <span class="skill-item">VPC</span>
-                           <span class="skill-item"><i class="devicon-git-plain colored"></i>Git</span>
-                           <span class="skill-item"><i class="devicon-kubernetes-plain colored"></i>Kubernetes</span>
-                           <span class="skill-item"><i class="devicon-docker-plain colored"></i>Docker</span>
-                        </div>
-                    </div>
-                </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-8">
+          <h2
+            class="font-serif text-3xl font-bold text-heading section-title text-center mb-12"
+          >
+            Technical Expertise
+          </h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="skill-category">
+              <h3 class="font-serif text-xl font-bold text-heading mb-4">
+                Programming & Databases
+              </h3>
+              <div class="skill-list">
+                <span class="skill-item"
+                  ><i class="devicon-python-plain colored"></i>Python</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-bash-plain"></i>Bash</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-javascript-plain colored"></i
+                  >JavaScript</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-powershell-plain colored"></i
+                  >PowerShell</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-mysql-plain colored"></i>MySQL</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-postgresql-plain colored"></i
+                  >PostgreSQL</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-mongodb-plain colored"></i>MongoDB</span
+                >
+              </div>
             </div>
-        </section>
+            <div class="skill-category">
+              <h3 class="font-serif text-xl font-bold text-heading mb-4">
+                Cybersecurity & Networking
+              </h3>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-20">
-            <div class="container mx-auto px-4 sm:px-8">
-                <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-12">Featured Work</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-                        <h3 class="font-serif text-xl font-bold text-heading mb-2">ElasticCloud</h3>
-                        <p class="text-body text-sm">Engineered a production-ready serverless backend with Cognito and IAM, cutting infrastructure costs by 30%.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-                        <h3 class="font-serif text-xl font-bold text-heading mb-2">AWS WAF Security</h3>
-                        <p class="text-body text-sm">Configured IP-based rules with AWS WAF to secure CloudFront distributions and control access at the edge.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-                        <h3 class="font-serif text-xl font-bold text-heading mb-2">Network Traffic Analysis</h3>
-                        <p class="text-body text-sm">Used Athena to query VPC Flow Logs for traffic pattern analysis and connectivity troubleshooting.</p>
-                    </div>
-                     <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-                        <h3 class="font-serif text-xl font-bold text-heading mb-2">Serverless Contact Form</h3>
-                        <p class="text-body text-sm">Built a serverless contact submission pipeline with API Gateway, Lambda, and SES to handle user input.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-  <h3 class="font-serif text-xl font-bold text-heading mb-2">Serverless Data Lake</h3>
-  <p class="text-body text-sm">Built a serverless ETL pipeline using AWS Glue, Lambda, and Redshift to process raw S3 data into analytics-ready tables.</p>
-</div>
+              <div class="skill-list">
+              <span class="skill-item">
+                <i class="devicon-splunk-original colored"></i> Splunk 
+            </span>
+                <span class="skill-item">
+                  <i class="fas fa-shield-alt"></i> Snort
+                </span>
 
-<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-  <h3 class="font-serif text-xl font-bold text-heading mb-2">Real-Time Log Monitoring</h3>
-  <p class="text-body text-sm">Engineered a log monitoring system with CloudWatch, Lambda, and DynamoDB to detect anomalies in real time and improve incident response.</p>
-</div>
+                <span class="skill-item">
+                  <i class="fas fa-bug"></i> Burp Suite
+                </span>
 
-<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-  <h3 class="font-serif text-xl font-bold text-heading mb-2">CI/CD Pipeline with Security Scans</h3>
-  <p class="text-body text-sm">Implemented a CI/CD pipeline on AWS CodePipeline integrating SonarQube and Trivy, enabling secure automated deployments with rollback.</p>
-</div>
+                <span class="skill-item">
+                  <i class="fas fa-terminal"></i> Metasploit
+                </span>
 
-<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-  <h3 class="font-serif text-xl font-bold text-heading mb-2">Cloud Cost Optimization Dashboard</h3>
-  <p class="text-body text-sm">Developed a Power BI dashboard with AWS Cost Explorer and CloudWatch data to track usage patterns and reduce monthly cloud spend by 20%.</p>
-</div>
+                <span class="skill-item">
+                  <i class="fas fa-search"></i> Nessus
+                </span>
 
-<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-  <h3 class="font-serif text-xl font-bold text-heading mb-2">Automated Backup & Recovery</h3>
-  <p class="text-body text-sm">Automated database snapshots and disaster recovery workflows using AWS Lambda and S3, ensuring RPO/RTO compliance for critical workloads.</p>
-</div>
+                <span class="skill-item">
+                  <i class="fas fa-network-wired"></i> Wireshark
+                </span>
 
-                    <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
-                        <h3 class="font-serif text-xl font-bold text-heading mb-2">SecureAccess VPN Setup</h3>
-                        <p class="text-body text-sm">Deployed a secure remote access solution with Cisco VPN & pfSense, reducing unauthorized access by 50%.</p>
-                    </div>
-                </div>
-                 <div class="text-center mt-12">
-                    <a href="https://github.com/KoshaG0hil" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View All Projects on GitHub</a>
-                </div>
+                <span class="skill-item">
+                  <i class="fas fa-satellite-dish"></i> Nmap
+                </span>
+              </div>
             </div>
-        </section>
+            <div class="skill-category">
+              <h3 class="font-serif text-xl font-bold text-heading mb-4">
+                Cloud & Tools
+              </h3>
+              <div class="skill-list">
+                <span class="skill-item"
+                  ><i class="devicon-amazonwebservices-original colored"></i
+                  >EC2</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-amazonwebservices-original colored"></i
+                  >S3</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-amazonwebservices-original colored"></i
+                  >IAM</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-amazonwebservices-original colored"></i
+                  >RDS</span
+                >
+                <span class="skill-item">VPC</span>
+                <span class="skill-item"
+                  ><i class="devicon-git-plain colored"></i>Git</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-kubernetes-plain colored"></i
+                  >Kubernetes</span
+                >
+                <span class="skill-item"
+                  ><i class="devicon-docker-plain colored"></i>Docker</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-         <!-- Credentials Section -->
-        <section id="credentials" class="py-20 bg-white">
-            <div class="container mx-auto px-4 sm:px-8">
-                <div class="mb-16">
-                    <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-8">Education</h2>
-                    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-center">
-                           <h3 class="font-serif text-xl font-bold text-heading">Pace University</h3>
-                           <p class="text-body font-semibold">Master of Science, Cyber Security</p>
-                           <p class="text-body text-sm mt-1">(2022 - 2024) | GPA: 3.91</p>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-center">
-                           <h3 class="font-serif text-xl font-bold text-heading">University of Pune</h3>
-                           <p class="text-body font-semibold">Bachelor of Engineering, Computer Engineering</p>
-                           <p class="text-body text-sm mt-1">(2018 - 2021)</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Certifications -->
-                <div>
-                     <h2 class="font-serif text-3xl font-bold text-heading section-title text-center mb-8">Certifications</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                        <div class="cert-card">
-                            <h4 class="font-semibold text-body text-center mb-4">AWS Certified Solutions Architect</h4>
-                            <a href="https://www.credly.com/badges/cb4d6acb-194c-4063-899f-4cd820dcb709" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full text-xs">Verify Badge</a>
-                        </div>
-                        <div class="cert-card">
-                            <h4 class="font-semibold text-body text-center mb-4">AWS Certified Cloud Practitioner</h4>
-                            <a href="https://www.credly.com/badges/fa4acd6f-31c8-4f5e-82dc-6b939e2a5b30/public_url" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full text-xs">Verify Badge</a>
-                        </div>
-                        <div class="cert-card">
-                           <h4 class="font-semibold text-body text-center mb-4">CompTIA Security+ ce </h4>
-                            <a href="https://www.credly.com/badges/c25e340d-71ff-49e8-b856-a89746e71aad/public_url" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full text-xs">Verify Badge</a>
-                        </div>
-                        <div class="cert-card">
-                           <h4 class="font-semibold text-body text-center mb-4">CCNA</h4>
-                           <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary w-full text-xs">Verify Badge</a>
-                        </div>
-                    </div>
-                </div>
+      <!-- Projects Section -->
+      <section id="projects" class="py-20">
+        <div class="container mx-auto px-4 sm:px-8">
+          <h2
+            class="font-serif text-3xl font-bold text-heading section-title text-center mb-12"
+          >
+            Featured Work
+          </h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                ElasticCloud
+              </h3>
+              <p class="text-body text-sm">
+                Engineered a production-ready serverless backend with Cognito
+                and IAM, cutting infrastructure costs by 30%.
+              </p>
             </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="container mx-auto px-4 sm:px-8 text-center max-w-3xl">
-                 <h2 class="font-serif text-3xl font-bold text-heading section-title mb-4">Let's Connect</h2>
-                 <p class="text-body text-lg max-w-2xl mx-auto mb-8">I'm currently open to new opportunities and collaborations. If you have a project in mind or just want to say hello, please fill out the form below.</p>
-                 <form id="contact-form" action="https://formspree.io/f/meogodbk" method="POST" class="space-y-6">
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none" required>
-                        <input type="email" id="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none" required>
-                    </div>
-                    <div>
-                        <textarea name="message" id="message" rows="5" placeholder="Your Message" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none" required></textarea>
-                    </div>
-                    <div class="text-center">
-                         <button type="submit" class="btn btn-primary text-lg">Send Message</button>
-                    </div>
-                 </form>
-                 <div id="form-status" class="mt-4"></div>
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                AWS WAF Security
+              </h3>
+              <p class="text-body text-sm">
+                Configured IP-based rules with AWS WAF to secure CloudFront
+                distributions and control access at the edge.
+              </p>
             </div>
-        </section>
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                Network Traffic Analysis
+              </h3>
+              <p class="text-body text-sm">
+                Used Athena to query VPC Flow Logs for traffic pattern analysis
+                and connectivity troubleshooting.
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                Serverless Contact Form
+              </h3>
+              <p class="text-body text-sm">
+                Built a serverless contact submission pipeline with API Gateway,
+                Lambda, and SES to handle user input.
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                Serverless Data Lake
+              </h3>
+              <p class="text-body text-sm">
+                Built a serverless ETL pipeline using AWS Glue, Lambda, and
+                Redshift to process raw S3 data into analytics-ready tables.
+              </p>
+            </div>
 
-        <footer class="py-6 border-t border-gray-200">
-            <div class="container mx-auto text-center text-sm text-body">
-                <p>&copy; 2025 Kosha Gohil. All Rights Reserved.</p>
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                Real-Time Log Monitoring
+              </h3>
+              <p class="text-body text-sm">
+                Engineered a log monitoring system with CloudWatch, Lambda, and
+                DynamoDB to detect anomalies in real time and improve incident
+                response.
+              </p>
             </div>
-        </footer>
+
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                CI/CD Pipeline with Security Scans
+              </h3>
+              <p class="text-body text-sm">
+                Implemented a CI/CD pipeline on AWS CodePipeline integrating
+                SonarQube and Trivy, enabling secure automated deployments with
+                rollback.
+              </p>
+            </div>
+
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                Cloud Cost Optimization Dashboard
+              </h3>
+              <p class="text-body text-sm">
+                Developed a Power BI dashboard with AWS Cost Explorer and
+                CloudWatch data to track usage patterns and reduce monthly cloud
+                spend by 20%.
+              </p>
+            </div>
+
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                Automated Backup & Recovery
+              </h3>
+              <p class="text-body text-sm">
+                Automated database snapshots and disaster recovery workflows
+                using AWS Lambda and S3, ensuring RPO/RTO compliance for
+                critical workloads.
+              </p>
+            </div>
+
+            <div
+              class="bg-white p-6 rounded-lg border border-gray-200 shadow-md"
+            >
+              <h3 class="font-serif text-xl font-bold text-heading mb-2">
+                SecureAccess VPN Setup
+              </h3>
+              <p class="text-body text-sm">
+                Deployed a secure remote access solution with Cisco VPN &
+                pfSense, reducing unauthorized access by 50%.
+              </p>
+            </div>
+          </div>
+          <div class="text-center mt-12">
+            <a
+              href="https://github.com/KoshaG0hil"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              >View All Projects on GitHub</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Credentials Section -->
+      <section id="credentials" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-8">
+          <div class="mb-16">
+            <h2
+              class="font-serif text-3xl font-bold text-heading section-title text-center mb-8"
+            >
+              Education
+            </h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+              <div
+                class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-center"
+              >
+                <h3 class="font-serif text-xl font-bold text-heading">
+                  Pace University
+                </h3>
+                <p class="text-body font-semibold">
+                  Master of Science, Cyber Security
+                </p>
+                <p class="text-body text-sm mt-1">(2022 - 2024) | GPA: 3.91</p>
+              </div>
+              <div
+                class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-center"
+              >
+                <h3 class="font-serif text-xl font-bold text-heading">
+                  University of Pune
+                </h3>
+                <p class="text-body font-semibold">
+                  Bachelor of Engineering, Computer Engineering
+                </p>
+                <p class="text-body text-sm mt-1">(2018 - 2021) | GPA: 7.59</p>
+              </div>
+            </div>
+          </div>
+          <!-- Certifications -->
+          <div>
+            <h2
+              class="font-serif text-3xl font-bold text-heading section-title text-center mb-8"
+            >
+              Certifications
+            </h2>
+            <div
+              class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+            >
+              <div class="cert-card">
+                <h4 class="font-semibold text-body text-center mb-4">
+                  AWS Certified Solutions Architect
+                </h4>
+                <a
+                  href="https://www.credly.com/badges/cb4d6acb-194c-4063-899f-4cd820dcb709"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary w-full text-xs"
+                  >Verify Badge</a
+                >
+              </div>
+              <div class="cert-card">
+                <h4 class="font-semibold text-body text-center mb-4">
+                  AWS Certified Cloud Practitioner
+                </h4>
+                <a
+                  href="https://www.credly.com/badges/fa4acd6f-31c8-4f5e-82dc-6b939e2a5b30/public_url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary w-full text-xs"
+                  >Verify Badge</a
+                >
+              </div>
+              <div class="cert-card">
+                <h4 class="font-semibold text-body text-center mb-4">
+                  CompTIA Security+ ce
+                </h4>
+                <a
+                  href="https://www.credly.com/badges/c25e340d-71ff-49e8-b856-a89746e71aad/public_url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary w-full text-xs"
+                  >Verify Badge</a
+                >
+              </div>
+              <div class="cert-card">
+                <h4 class="font-semibold text-body text-center mb-4">CCNA</h4>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary w-full text-xs"
+                  >Verify Badge</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-20">
+        <div class="container mx-auto px-4 sm:px-8 text-center max-w-3xl">
+          <h2
+            class="font-serif text-3xl font-bold text-heading section-title mb-4"
+          >
+            Let's Connect
+          </h2>
+          <p class="text-body text-lg max-w-2xl mx-auto mb-8">
+            I'm currently open to new opportunities and collaborations. If you
+            have a project in mind or just want to say hello, please fill out
+            the form below.
+          </p>
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/meogodbk"
+            method="POST"
+            class="space-y-6"
+          >
+            <div class="grid sm:grid-cols-2 gap-6">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none"
+                required
+              />
+            </div>
+            <div>
+              <textarea
+                name="message"
+                id="message"
+                rows="5"
+                placeholder="Your Message"
+                class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-accent focus:outline-none"
+                required
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary text-lg">
+                Send Message
+              </button>
+            </div>
+          </form>
+          <div id="form-status" class="mt-4"></div>
+        </div>
+      </section>
+
+      <footer class="py-6 border-t border-gray-200">
+        <div class="container mx-auto text-center text-sm text-body">
+          <p>&copy; 2025 Kosha Gohil. All Rights Reserved.</p>
+        </div>
+      </footer>
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const coverPage = document.getElementById('cover-page');
-            const body = document.querySelector('body');
-            const header = document.getElementById('header');
-            const menuBtn = document.getElementById('menu-btn');
-            const closeMenuBtn = document.getElementById('close-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuLinks = document.querySelectorAll('.mobile-nav-link');
-            const contactForm = document.getElementById('contact-form');
-            const formStatus = document.getElementById('form-status');
+      document.addEventListener("DOMContentLoaded", function () {
+        const coverPage = document.getElementById("cover-page");
+        const body = document.querySelector("body");
+        const header = document.getElementById("header");
+        const menuBtn = document.getElementById("menu-btn");
+        const closeMenuBtn = document.getElementById("close-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuLinks = document.querySelectorAll(".mobile-nav-link");
+        const contactForm = document.getElementById("contact-form");
+        const formStatus = document.getElementById("form-status");
 
-            if(coverPage) {
-                coverPage.addEventListener('click', () => {
-                    coverPage.style.opacity = '0';
-                    setTimeout(() => {
-                        coverPage.style.display = 'none';
-                        body.classList.add('bg-active'); 
-                    }, 1000);
-                });
+        if (coverPage) {
+          coverPage.addEventListener("click", () => {
+            coverPage.style.opacity = "0";
+            setTimeout(() => {
+              coverPage.style.display = "none";
+              body.classList.add("bg-active");
+            }, 1000);
+          });
+        }
+
+        if (header) {
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 10) {
+              header.classList.add("scrolled");
+            } else {
+              header.classList.remove("scrolled");
             }
-            
-            if(header) {
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 10) {
-                        header.classList.add('scrolled');
+          });
+        }
+
+        if (menuBtn && mobileMenu && closeMenuBtn) {
+          menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.add("open");
+          });
+
+          closeMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("open");
+          });
+
+          mobileMenuLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.remove("open");
+            });
+          });
+        }
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const data = new FormData(form);
+
+            fetch(form.action, {
+              method: form.method,
+              body: data,
+              headers: {
+                Accept: "application/json",
+              },
+            })
+              .then((response) => {
+                if (response.ok) {
+                  if (formStatus) {
+                    formStatus.innerHTML = "Thanks for your submission!";
+                    formStatus.style.color = "#2c5248";
+                  }
+                  form.reset();
+                } else {
+                  response.json().then((data) => {
+                    if (Object.hasOwn(data, "errors")) {
+                      if (formStatus) {
+                        formStatus.innerHTML = data["errors"]
+                          .map((error) => error["message"])
+                          .join(", ");
+                        formStatus.style.color = "red";
+                      }
                     } else {
-                        header.classList.remove('scrolled');
+                      if (formStatus) {
+                        formStatus.innerHTML =
+                          "Oops! There was a problem submitting your form";
+                        formStatus.style.color = "red";
+                      }
                     }
-                });
-            }
-            
-            if(menuBtn && mobileMenu && closeMenuBtn) {
-                menuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.add('open');
-                });
-
-                closeMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.remove('open');
-                });
-                
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.remove('open');
-                    });
-                });
-            }
-            
-            if(contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const form = e.target;
-                    const data = new FormData(form);
-                    
-                    fetch(form.action, {
-                        method: form.method,
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    }).then(response => {
-                        if (response.ok) {
-                           if(formStatus){
-                                formStatus.innerHTML = "Thanks for your submission!";
-                                formStatus.style.color = "#2c5248";
-                           }
-                           form.reset();
-                        } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                     if(formStatus){
-                                        formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                                        formStatus.style.color = 'red';
-                                     }
-                                } else {
-                                     if(formStatus){
-                                        formStatus.innerHTML = "Oops! There was a problem submitting your form";
-                                        formStatus.style.color = 'red';
-                                     }
-                                }
-                            })
-                        }
-                    }).catch(error => {
-                        if(formStatus){
-                            formStatus.innerHTML = "Oops! There was a problem submitting your form";
-                            formStatus.style.color = 'red';
-                        }
-                    });
-                });
-            }
-
-        });
+                  });
+                }
+              })
+              .catch((error) => {
+                if (formStatus) {
+                  formStatus.innerHTML =
+                    "Oops! There was a problem submitting your form";
+                  formStatus.style.color = "red";
+                }
+              });
+          });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
-
-
-
-
