@@ -39,8 +39,8 @@
    - Automated drift detection, least-privilege analysis, policy validation, and self-healing IAM remediation.
 3. [**Serverless Virus Scanning System**](https://github.com/KoshaG0hil/serverless-virus-scanning-system)
    - Scalable file processing pipeline using AWS Lambda, ClamAV, S3 event triggers, and DynamoDB.
-4. [**SAMYA — Cloud-Native Health Management Platform**](https://github.com/KoshaG0hil/healthrx)
-   - Architecting a cloud-native health management platform with secure REST APIs, RBAC, AI-powered wellness insights, and HIPAA/DPDP-aligned healthcare data protection.
+4. [**SAMYA — Cloud-Native Health Management Platform**](https://samya.online) ([Source Code](https://github.com/KoshaG0hil/healthrx))
+   - Architecting a cloud-native health management platform with secure REST APIs, RBAC, AI-powered wellness insights, and HIPAA/DPDP-aligned healthcare data protection. Live at [samya.online](https://samya.online).
 
 ---
 
