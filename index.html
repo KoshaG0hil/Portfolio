@@ -706,66 +706,92 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <!-- Terraform -->
-              <div class="card-elevated p-6 flex flex-col justify-between text-center">
+              <div class="card-elevated p-6 flex flex-col justify-between text-center h-full hover:shadow-lg transition-all duration-300">
                 <div>
-                  <div class="w-12 h-12 rounded-full bg-accent-light text-accent mx-auto flex items-center justify-center text-xl mb-4">
-                    <i class="devicon-terraform-plain"></i>
+                  <div class="w-14 h-14 rounded-2xl bg-accent-light text-accent mx-auto flex items-center justify-center mb-4 border border-accent/15 shadow-sm">
+                    <svg class="w-7 h-7 text-accent" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M1.44 0v7.575l6.561 3.79V3.788L1.44 0zm7.56 4.35v7.575l6.562 3.788V8.138L9 4.35zm7.56 4.35v7.576l6.56-3.788V4.912l-6.56 3.788zM1.44 8.7v7.576l6.561 3.788V12.49L1.44 8.7z"/>
+                    </svg>
                   </div>
-                  <h4 class="font-bold text-heading text-base mb-1">HashiCorp Certified: Terraform Associate (004)</h4>
-                  <p class="text-xs text-gray-500 mb-4">HashiCorp • Jun 2026</p>
+                  <h4 class="font-serif font-bold text-heading text-base mb-1.5 min-h-[2.75rem] flex items-center justify-center leading-snug">
+                    HashiCorp Certified: Terraform Associate (004)
+                  </h4>
+                  <p class="text-xs text-gray-500 font-medium">HashiCorp • Jun 2026</p>
                 </div>
-                <span class="text-xs font-semibold text-accent px-2 py-1 rounded bg-gray-50 w-full block">Certified</span>
+                <div class="mt-4 pt-3 border-t border-gray-100 w-full">
+                  <span class="btn btn-secondary w-full text-xs justify-center py-2.5 bg-accent/5 border-accent text-accent font-semibold flex items-center gap-1.5 cursor-default">
+                    <i class="fas fa-check-circle text-accent"></i> Verified Active
+                  </span>
+                </div>
               </div>
 
               <!-- Solutions Architect -->
-              <div class="card-elevated p-6 flex flex-col justify-between text-center">
+              <div class="card-elevated p-6 flex flex-col justify-between text-center h-full hover:shadow-lg transition-all duration-300">
                 <div>
-                  <div class="w-12 h-12 rounded-full bg-accent-light text-accent mx-auto flex items-center justify-center text-xl mb-4">
-                    <i class="devicon-amazonwebservices-original colored"></i>
+                  <div class="w-14 h-14 rounded-2xl bg-accent-light text-accent mx-auto flex items-center justify-center mb-4 border border-accent/15 shadow-sm">
+                    <i class="fa-brands fa-aws text-3xl text-accent"></i>
                   </div>
-                  <h4 class="font-bold text-heading text-base mb-1">AWS Certified Solutions Architect – Associate</h4>
-                  <p class="text-xs text-gray-500 mb-4">Amazon Web Services • Aug 2025</p>
+                  <h4 class="font-serif font-bold text-heading text-base mb-1.5 min-h-[2.75rem] flex items-center justify-center leading-snug">
+                    AWS Certified Solutions Architect – Associate
+                  </h4>
+                  <p class="text-xs text-gray-500 font-medium">Amazon Web Services • Aug 2025</p>
                 </div>
-                <a
-                  href="https://www.credly.com/badges/cb4d6acb-194c-4063-899f-4cd820dcb709"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-secondary w-full text-xs justify-center py-2"
-                >Verify Credly</a>
+                <div class="mt-4 pt-3 border-t border-gray-100 w-full">
+                  <a
+                    href="https://www.credly.com/badges/cb4d6acb-194c-4063-899f-4cd820dcb709"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary w-full text-xs justify-center py-2.5 hover:bg-accent hover:text-white transition-all flex items-center gap-1.5"
+                  >
+                    <span>Verify Credly</span> <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
+                </div>
               </div>
 
               <!-- Security+ -->
-              <div class="card-elevated p-6 flex flex-col justify-between text-center">
+              <div class="card-elevated p-6 flex flex-col justify-between text-center h-full hover:shadow-lg transition-all duration-300">
                 <div>
-                  <div class="w-12 h-12 rounded-full bg-accent-light text-accent mx-auto flex items-center justify-center text-xl mb-4">
-                    <i class="fas fa-shield-alt text-accent"></i>
+                  <div class="w-14 h-14 rounded-2xl bg-accent-light text-accent mx-auto flex items-center justify-center mb-4 border border-accent/15 shadow-sm">
+                    <i class="fa-solid fa-shield-halved text-2xl text-accent"></i>
                   </div>
-                  <h4 class="font-bold text-heading text-base mb-1">CompTIA Security+ ce</h4>
-                  <p class="text-xs text-gray-500 mb-4">CompTIA • Jun 2025</p>
+                  <h4 class="font-serif font-bold text-heading text-base mb-1.5 min-h-[2.75rem] flex items-center justify-center leading-snug">
+                    CompTIA Security+ ce
+                  </h4>
+                  <p class="text-xs text-gray-500 font-medium">CompTIA • Jun 2025</p>
                 </div>
-                <a
-                  href="https://www.credly.com/badges/c25e340d-71ff-49e8-b856-a89746e71aad/public_url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-secondary w-full text-xs justify-center py-2"
-                >Verify Credly</a>
+                <div class="mt-4 pt-3 border-t border-gray-100 w-full">
+                  <a
+                    href="https://www.credly.com/badges/c25e340d-71ff-49e8-b856-a89746e71aad/public_url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary w-full text-xs justify-center py-2.5 hover:bg-accent hover:text-white transition-all flex items-center gap-1.5"
+                  >
+                    <span>Verify Credly</span> <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
+                </div>
               </div>
 
               <!-- Cloud Practitioner -->
-              <div class="card-elevated p-6 flex flex-col justify-between text-center">
+              <div class="card-elevated p-6 flex flex-col justify-between text-center h-full hover:shadow-lg transition-all duration-300">
                 <div>
-                  <div class="w-12 h-12 rounded-full bg-accent-light text-accent mx-auto flex items-center justify-center text-xl mb-4">
-                    <i class="devicon-amazonwebservices-original colored"></i>
+                  <div class="w-14 h-14 rounded-2xl bg-accent-light text-accent mx-auto flex items-center justify-center mb-4 border border-accent/15 shadow-sm">
+                    <i class="fa-brands fa-aws text-3xl text-accent"></i>
                   </div>
-                  <h4 class="font-bold text-heading text-base mb-1">AWS Certified Cloud Practitioner</h4>
-                  <p class="text-xs text-gray-500 mb-4">Amazon Web Services • Jul 2024</p>
+                  <h4 class="font-serif font-bold text-heading text-base mb-1.5 min-h-[2.75rem] flex items-center justify-center leading-snug">
+                    AWS Certified Cloud Practitioner
+                  </h4>
+                  <p class="text-xs text-gray-500 font-medium">Amazon Web Services • Jul 2024</p>
                 </div>
-                <a
-                  href="https://www.credly.com/badges/fa4acd6f-31c8-4f5e-82dc-6b939e2a5b30/public_url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-secondary w-full text-xs justify-center py-2"
-                >Verify Credly</a>
+                <div class="mt-4 pt-3 border-t border-gray-100 w-full">
+                  <a
+                    href="https://www.credly.com/badges/fa4acd6f-31c8-4f5e-82dc-6b939e2a5b30/public_url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary w-full text-xs justify-center py-2.5 hover:bg-accent hover:text-white transition-all flex items-center gap-1.5"
+                  >
+                    <span>Verify Credly</span> <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
