@@ -4,6 +4,7 @@
 [![AWS](https://img.shields.io/badge/AWS-Solutions%20Architect-232F3E?style=for-the-badge&logo=amazonwebservices)](https://aws.amazon.com)
 [![DevSecOps](https://img.shields.io/badge/DevSecOps-Engineer-4E5D6C?style=for-the-badge&logo=terraform)](https://www.terraform.io/)
 [![Medium](https://img.shields.io/badge/Medium-Publications-12100E?style=for-the-badge&logo=medium)](https://medium.com/@gohilkosha)
+[![Instagram](https://img.shields.io/badge/Instagram-@cloudwithkosha-E4405F?style=for-the-badge&logo=instagram)](https://instagram.com/cloudwithkosha)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/kosha-gohil)
 
 > **Welcome to the source repository for my personal Cloud & DevSecOps Engineering portfolio.**  
@@ -99,5 +100,6 @@ Then open `http://localhost:8000` in your web browser.
 
 - **Email**: gohilkosha19@gmail.com
 - **Medium**: [medium.com/@gohilkosha](https://medium.com/@gohilkosha)
+- **Instagram**: [@cloudwithkosha](https://instagram.com/cloudwithkosha)
 - **LinkedIn**: [linkedin.com/in/kosha-gohil](https://www.linkedin.com/in/kosha-gohil)
 - **GitHub**: [@KoshaG0hil](https://github.com/KoshaG0hil)
