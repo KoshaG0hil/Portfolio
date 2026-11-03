@@ -535,95 +535,305 @@
         </div>
       </section>
 
-      <!-- Projects Section -->
+            <!-- Projects Section -->
       <section id="projects" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-8">
-          <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-center max-w-2xl mx-auto mb-10">
             <div class="text-xs font-bold uppercase tracking-widest text-accent mb-2">Featured Implementations</div>
             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-heading">
               Featured Projects
             </h2>
-            <p class="text-body text-sm mt-3">Production-grade cloud security platforms and automation suites.</p>
+            <p class="text-body text-sm mt-3">Production-grade cloud security platforms, zero-trust architectures, and resilience suites.</p>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <!-- 1. Automated IAM Governance Engine -->
-            <div class="card-elevated p-8 flex flex-col justify-between">
+          <!-- Project Filter Tabs -->
+          <div class="flex flex-wrap justify-center gap-2 mb-12">
+            <button class="project-filter-btn active px-4 py-2 rounded-full text-xs font-semibold border border-accent bg-accent text-white transition-all shadow-sm" data-filter="all">All Projects</button>
+            <button class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-gray-300 text-gray-700 hover:border-accent hover:text-accent bg-white transition-all shadow-sm" data-filter="zero-trust">Zero-Trust & Security</button>
+            <button class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-gray-300 text-gray-700 hover:border-accent hover:text-accent bg-white transition-all shadow-sm" data-filter="sre">SRE & GreenOps</button>
+            <button class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-gray-300 text-gray-700 hover:border-accent hover:text-accent bg-white transition-all shadow-sm" data-filter="devsecops">DevSecOps & Platform</button>
+            <button class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-gray-300 text-gray-700 hover:border-accent hover:text-accent bg-white transition-all shadow-sm" data-filter="ai">AI & Chaos Engineering</button>
+          </div>
+
+          <div id="projects-grid" class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+
+            <!-- 1. Zero-Trust Supply Chain eBPF Sentinel -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
               <div>
                 <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">AWS IAM • Security Governance</span>
-                  <a href="https://github.com/KoshaG0hil/Automated-IAM-Governance-Engine" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg"><i class="fab fa-github"></i></a>
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Kernel Security • eBPF • SLSA v3</span>
+                  <a href="https://github.com/KoshaG0hil/Zero-Trust-Supply-Chain-eBPF-Sentinel" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
                 </div>
                 <h3 class="font-serif text-2xl font-bold text-heading mb-3">
-                  Automated IAM Governance & Configuration Drift Detection Engine
+                  Zero-Trust Supply Chain eBPF Sentinel
                 </h3>
                 <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Engineered an automated IAM governance platform that evaluates AWS IAM policies and access configurations against least-privilege baselines to identify excessive permissions and configuration drift.</li>
-                  <li>Implemented continuous access-governance validation, CloudTrail-based monitoring, real-time SNS alerting, and audit-ready reporting, replacing manual IAM reviews with automated security controls.</li>
-                  <li>Added a lightweight anomaly-scoring workflow to prioritize risky access changes, an AI tools-style triage layer that reduced alert noise and sped up investigation queues.</li>
+                  <li>Kernel-level software supply chain sandbox intercepting container build-time system calls via Linux eBPF to detect compromised dependencies and unexpected network calls.</li>
+                  <li>Generates cryptographically-verifiable SLSA Level 3 in-toto provenance statements capturing immutable build digests, environment metadata, and git commit SHAs.</li>
+                  <li>Enforces automated Sigstore Cosign signature admission gates in CI/CD pipelines, blocking unsigned or tampered container images from production Kubernetes clusters.</li>
                 </ul>
               </div>
               <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">Terraform • Python • Boto3 • AWS SNS</span>
-                <a href="https://github.com/KoshaG0hil/Automated-IAM-Governance-Engine" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                <span class="text-xs text-gray-500 font-medium">Linux eBPF • SLSA v3 • Sigstore Cosign • Python 3.12 • Docker</span>
+                <a href="https://github.com/KoshaG0hil/Zero-Trust-Supply-Chain-eBPF-Sentinel" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
                   View Source <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
               </div>
             </div>
 
-            <!-- 2. Secure CI/CD & Infrastructure Automation Pipeline -->
-            <div class="card-elevated p-8 flex flex-col justify-between">
+            <!-- 2. AWS Nitro Enclave Confidential Compute Vault -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Confidential Compute • Nitro Enclaves</span>
+                  <a href="https://github.com/KoshaG0hil/AWS-Nitro-Enclave-Confidential-Compute-Vault" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  AWS Nitro Enclave Confidential Compute Vault
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Engineered zero-trust hardware memory isolation vault leveraging AWS Nitro Enclaves, eliminating host operator root access, external networking, and persistent storage attack surfaces.</li>
+                  <li>Implemented COSE/CBOR cryptographic attestation document validation against PCR0-2 registers with AWS KMS <code>RecipientAttestation</code> policy decryption.</li>
+                  <li>Constructed a clean-room analytics engine applying differential privacy Laplacian perturbation (ε = 0.5) to enable mathematical query-level privacy guarantees on sensitive records.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">AWS Nitro Enclaves • KMS RecipientAttestation • COSE/CBOR • Cryptography</span>
+                <a href="https://github.com/KoshaG0hil/AWS-Nitro-Enclave-Confidential-Compute-Vault" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- 3. Multi-Region Active-Active Disaster Recovery Mesh -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="sre">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Resilience • Route 53 ARC • DR</span>
+                  <a href="https://github.com/KoshaG0hil/Multi-Region-ActiveActive-Disaster-Recovery-Mesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Multi-Region Active-Active Disaster Recovery Mesh
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Tier-0 enterprise disaster recovery framework across AWS us-east-1 and us-west-2 with sub-second routing control failover via Route 53 Application Recovery Controller (ARC).</li>
+                  <li>Configured DynamoDB Global Tables multi-region active-active replication with real-time replication latency tracking, drift telemetry, and automated health probing.</li>
+                  <li>Engineered automated chaos blackout fault injection with automated health probes achieving verified RTO &lt; 5s and RPO = 0.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">Route 53 ARC • DynamoDB Global Tables • Chaos Engineering • Python • Boto3</span>
+                <a href="https://github.com/KoshaG0hil/Multi-Region-ActiveActive-Disaster-Recovery-Mesh" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- 4. Carbon-Aware Autonomous Cloud Scheduler (GreenOps) -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="sre">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">GreenOps • Grid Carbon Telemetry • FinOps</span>
+                  <a href="https://github.com/KoshaG0hil/Carbon-Aware-Autonomous-Cloud-Scheduler" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Carbon-Aware Autonomous Cloud Scheduler
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Integrated real-time electrical grid carbon intensity telemetry (gCO2e/kWh) across regional US power grids (CAISO, ERCOT, PJM, NYISO) to dynamically schedule compute workloads.</li>
+                  <li>Coupled carbon forecasting with AWS Spot market economics and Pareto multi-objective optimization to minimize Scope 2 emissions by 30–65% without SLA latency degradation.</li>
+                  <li>Implemented automated task relocation runbooks and carbon audit telemetry exports to Prometheus and Grafana for enterprise ESG governance.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">GreenOps • AWS Spot Economics • Grid Carbon Telemetry • Pareto Multi-Objective</span>
+                <a href="https://github.com/KoshaG0hil/Carbon-Aware-Autonomous-Cloud-Scheduler" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- 5. Automated IAM Governance & Configuration Drift Engine -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">AWS IAM • Security Governance</span>
+                  <div class="flex items-center gap-3">
+                    <a href="https://koshag0hil.github.io/Automated-IAM-Governance-Engine/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base" title="Live Dashboard"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/KoshaG0hil/Automated-IAM-Governance-Engine" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Automated IAM Governance & Drift Detection Engine
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Automated IAM governance platform evaluating AWS IAM policies, roles, and trust relationships against least-privilege baselines and CIS AWS Foundations.</li>
+                  <li>Features 14+ privilege escalation signatures, compound anomaly scoring, and CloudTrail EventBridge automation with real-time SNS security alerts.</li>
+                  <li>Deployed an interactive visual audit dashboard and AI triage queues to streamline investigation workflows and eliminate standing administrative privileges.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">Terraform • Python 3.12 • Boto3 • AWS SNS • EventBridge</span>
+                <div class="flex items-center gap-4">
+                  <a href="https://koshag0hil.github.io/Automated-IAM-Governance-Engine/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                    Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
+                  </a>
+                  <a href="https://github.com/KoshaG0hil/Automated-IAM-Governance-Engine" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-gray-600 hover:text-accent hover:underline flex items-center gap-1">
+                    View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Autonomous AI Cloud Red-Team & Chaos Engine (BAS) -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="ai">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Agentic AI • Breach Simulation • MITRE ATT&CK</span>
+                  <a href="https://github.com/KoshaG0hil/Autonomous-AI-Cloud-RedTeam-Chaos-Agent" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Autonomous AI Cloud Red-Team & Chaos Engine
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Agentic AI adversary emulation platform utilizing ReAct reasoning loops and NetworkX graph traversal to discover multi-hop lateral movement paths across cloud assets.</li>
+                  <li>Maps security posture directly against MITRE ATT&CK for Cloud (Initial Access through Exfiltration) and quantitatively calculates blast radius scores.</li>
+                  <li>Auto-generates self-healing Terraform code and OPA policies to remediate discovered toxic combinations without manual security intervention.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">ReAct AI Loop • NetworkX • MITRE ATT&CK Cloud • Terraform • Python</span>
+                <a href="https://github.com/KoshaG0hil/Autonomous-AI-Cloud-RedTeam-Chaos-Agent" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- 7. Post-Quantum Cloud Cryptography Sentinel -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Post-Quantum Crypto • NIST FIPS 203</span>
+                  <a href="https://github.com/KoshaG0hil/Post-Quantum-Cloud-Cryptography-Sentinel" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Post-Quantum Cloud Cryptography Sentinel
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Evaluates AWS CloudFront, ALB, KMS, and S3 encryption posture against NIST FIPS 203 (ML-KEM) and CNSA 2.0 quantum-resistant cryptography standards.</li>
+                  <li>Calculates "Harvest Now, Decrypt Later" (HNDL) exposure risk using Quantum Vulnerability Index (QVI) algorithm modeling data shelf-life against quantum timelines.</li>
+                  <li>Auto-generates hybrid classical/post-quantum Terraform migration modules and KMS key rotation policies for quantum-resilient infrastructure.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">NIST FIPS 203 ML-KEM • CNSA 2.0 • AWS KMS • Terraform • Python</span>
+                <a href="https://github.com/KoshaG0hil/Post-Quantum-Cloud-Cryptography-Sentinel" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- 8. Enterprise Amazon EKS Zero-Trust Security Mesh -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Kubernetes • Cilium eBPF • OPA Gatekeeper</span>
+                  <a href="https://github.com/KoshaG0hil/Enterprise-EKS-ZeroTrust-Security-Mesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Enterprise Amazon EKS Zero-Trust Security Mesh
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Hardened Amazon EKS clusters with Cilium eBPF L7 network microsegmentation, enforcing strict egress/ingress policies and mutual workload identity authentication.</li>
+                  <li>Implemented OPA Gatekeeper declarative admission controller policies blocking root containers, host namespaces, and unverified registry images.</li>
+                  <li>Integrated runtime Falco kernel event detection with automated threat containment pods to instantly isolate compromised containers.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">Amazon EKS • Cilium eBPF • OPA Gatekeeper • Falco • Helm • Terraform</span>
+                <a href="https://github.com/KoshaG0hil/Enterprise-EKS-ZeroTrust-Security-Mesh" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- 9. Secure CI/CD & Infrastructure Automation Pipeline -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
               <div>
                 <div class="flex items-center justify-between mb-3">
                   <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">DevSecOps • Automated Rollback</span>
-                  <a href="https://github.com/KoshaG0hil/Secure-CICD-Infrastructure-Automation-Pipeline" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg"><i class="fab fa-github"></i></a>
+                  <a href="https://github.com/KoshaG0hil/Secure-CICD-Infrastructure-Automation-Pipeline" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
                 </div>
                 <h3 class="font-serif text-2xl font-bold text-heading mb-3">
                   Secure CI/CD & Infrastructure Automation Pipeline
                 </h3>
                 <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Engineered a security-focused CI/CD pipeline integrating source validation, Terraform plan/apply workflows, approval gates, container deployments, and automated rollback controls.</li>
-                  <li>Embedded infrastructure and deployment validation into the software delivery lifecycle, preventing misconfigurations from progressing through deployment workflows.</li>
-                  <li>Built canary health probes auditing `/healthz` and response latency SLAs, triggering self-healing rollbacks in &lt; 2.0s with automated post-mortem incident generation.</li>
+                  <li>Enterprise 6-stage DevSecOps pipeline embedding SAST (Bandit), secret leak detection (Gitleaks), dependency CVE auditing (pip-audit), and OPA Rego IaC validation.</li>
+                  <li>Automated Trivy container vulnerability scanning, blocking deployment progression when critical CVEs or root user violations are identified.</li>
+                  <li>Constructed canary health probes auditing `/healthz` and response latency SLAs, triggering self-healing rollbacks in &lt; 2.0s with automated post-mortem incident generation.</li>
                 </ul>
               </div>
               <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">GitHub Actions • Terraform • ECS Fargate • Docker</span>
+                <span class="text-xs text-gray-500 font-medium">GitHub Actions • Terraform • ECS Fargate • OPA Rego • Docker</span>
                 <a href="https://github.com/KoshaG0hil/Secure-CICD-Infrastructure-Automation-Pipeline" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
                   View Source <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
               </div>
             </div>
 
-            <!-- 3. Serverless Malware Detection Pipeline -->
-            <div class="card-elevated p-8 flex flex-col justify-between">
+            <!-- 10. Serverless Malware Detection & File Quarantine Pipeline -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
               <div>
                 <div class="flex items-center justify-between mb-3">
                   <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Serverless • Threat Detection</span>
-                  <a href="https://github.com/KoshaG0hil/serverless-virus-scanning-system" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg"><i class="fab fa-github"></i></a>
+                  <a href="https://github.com/KoshaG0hil/serverless-virus-scanning-system" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
                 </div>
                 <h3 class="font-serif text-2xl font-bold text-heading mb-3">
-                  Serverless Malware Detection & File Quarantine Pipeline
+                  Serverless Malware Detection & Quarantine Pipeline
                 </h3>
                 <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Designed an event-driven malware detection and quarantine architecture using AWS Lambda and ClamAV to automatically scan uploaded media before allowing clean content to reach S3.</li>
-                  <li>Implemented automated quarantine and SNS-based security alerting to isolate malicious uploads and reduce the attack surface associated with user-generated content.</li>
-                  <li>Integrated DynamoDB tracking for immutable audit logging and incident analysis.</li>
+                  <li>Designed dual-cloud event-driven antivirus scanning architecture using AWS Lambda and Google Cloud Run with ClamAV to inspect uploaded objects in real time.</li>
+                  <li>Enforced 3-tier zero-trust quarantine isolation (Unprocessed, Clean, Quarantined) with automated threat isolation and SNS/PubSub security alerts.</li>
+                  <li>Integrated DynamoDB tracking for immutable audit logging, scan execution metrics, and virus signature definitions synchronization.</li>
                 </ul>
               </div>
               <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">AWS Lambda • ClamAV • S3 • DynamoDB • SNS</span>
+                <span class="text-xs text-gray-500 font-medium">AWS Lambda • ClamAV • Amazon S3 • DynamoDB • Google Cloud Run</span>
                 <a href="https://github.com/KoshaG0hil/serverless-virus-scanning-system" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
                   View Source <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
               </div>
             </div>
 
-            <!-- 4. SAMYA — Cloud-Native Health Management Platform -->
-            <div class="card-elevated p-8 flex flex-col justify-between">
+            <!-- 11. Bastionless CIS Linux Hardening & SSM Architecture -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
               <div>
                 <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Cloud-Native • HealthTech</span>
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Linux Hardening • AWS SSM • Ansible</span>
+                  <a href="https://github.com/KoshaG0hil/Project-2-linux-hardening" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Bastionless CIS Linux Hardening & SSM Architecture
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Automated Center for Internet Security (CIS) Benchmark Level 1 & 2 server hardening across Ubuntu and Amazon Linux using modular Ansible playbooks.</li>
+                  <li>Eliminated public SSH ports and bastion jump hosts by establishing private AWS Systems Manager (SSM) Session Manager access over private VPC Endpoints.</li>
+                  <li>Codified infrastructure provisioning in Terraform with automated audit verification scripts testing kernel parameters, PAM, and filesystem permissions.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">Ansible • AWS Systems Manager • Terraform • EC2 • CIS Benchmarks</span>
+                <a href="https://github.com/KoshaG0hil/Project-2-linux-hardening" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- 12. SAMYA — Cloud-Native Health Management Platform -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Production HealthTech • HIPAA</span>
                   <div class="flex items-center gap-3">
                     <a href="https://samya.online" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base" title="Live Platform"><i class="fas fa-external-link-alt"></i></a>
                     <a href="https://github.com/KoshaG0hil/healthrx" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
@@ -633,14 +843,13 @@
                   SAMYA — Cloud-Native Health Management Platform
                 </h3>
                 <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Architecting a cloud-native health management platform that brings medication tracking, wellness, health readings, prescriptions, reports, nutrition, hydration, exercise, women's health, and health records into a unified platform.</li>
-                  <li>Engineering secure REST APIs and role-based access controls (RBAC) with encryption and audit logging to protect sensitive health information and maintain traceability across user workflows.</li>
-                  <li>Developing an AI-powered wellness experience designed to help users understand health patterns, build healthier habits, and receive personalized lifestyle guidance from their health data.</li>
-                  <li>Containerizing the application with Docker and designing the platform around security, privacy, and healthcare data-protection requirements aligned with HIPAA and DPDP principles.</li>
+                  <li>Architecting a production cloud-native health management platform that brings medication tracking, health readings, prescriptions, and health records into a unified platform.</li>
+                  <li>Engineering secure REST APIs, role-based access control (RBAC), and KMS encryption-at-rest aligned with HIPAA and DPDP healthcare data privacy mandates.</li>
+                  <li>Containerized with Docker and monitored via Prometheus, Grafana, and CloudWatch supporting zero-downtime blue/green deployment cutovers for 400–500 daily eRx transactions.</li>
                 </ul>
               </div>
               <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">Docker • HIPAA Compliance • RBAC • REST APIs</span>
+                <span class="text-xs text-gray-500 font-medium">Docker • HIPAA Compliance • RBAC • REST APIs • CloudWatch</span>
                 <div class="flex items-center gap-4">
                   <a href="https://samya.online" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
                     Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
@@ -651,6 +860,7 @@
                 </div>
               </div>
             </div>
+
           </div>
 
           <div class="text-center mt-12">
@@ -660,7 +870,7 @@
               rel="noopener noreferrer"
               class="btn btn-primary"
             >
-              <i class="fab fa-github"></i> View All Repositories on GitHub
+              <i class="fab fa-github"></i> View All 30 Repositories on GitHub
             </a>
           </div>
         </div>
@@ -727,9 +937,14 @@
                   <p class="text-xs text-gray-500 font-medium">HashiCorp • Jun 2026</p>
                 </div>
                 <div class="mt-4 pt-3 border-t border-gray-100 w-full">
-                  <span class="btn btn-secondary w-full text-xs justify-center py-2.5 bg-accent/5 border-accent text-accent font-semibold flex items-center gap-1.5 cursor-default">
-                    <i class="fas fa-check-circle text-accent"></i> Verified Active
-                  </span>
+                  <a
+                    href="https://www.credly.com/badges/360e87b8-3e50-46df-b201-7d9566aff674"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary w-full text-xs justify-center py-2.5 hover:bg-accent hover:text-white transition-all flex items-center gap-1.5"
+                  >
+                    <span>Verify Credly</span> <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
                 </div>
               </div>
 
@@ -922,6 +1137,31 @@
             });
           });
         }
+
+        
+        // --- Projects Category Filter ---
+        const filterBtns = document.querySelectorAll(".project-filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => {
+              b.classList.remove("active", "bg-accent", "text-white");
+              b.classList.add("bg-white", "text-gray-700", "border-gray-300");
+            });
+            btn.classList.add("active", "bg-accent", "text-white");
+            btn.classList.remove("bg-white", "text-gray-700", "border-gray-300");
+
+            const filter = btn.getAttribute("data-filter");
+            projectCards.forEach((card) => {
+              if (filter === "all" || card.getAttribute("data-category") === filter) {
+                card.style.display = "flex";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
 
         if (contactForm) {
           contactForm.addEventListener("submit", function (e) {
