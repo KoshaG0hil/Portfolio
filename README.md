@@ -3,10 +3,11 @@
 [![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-2ea44f?style=for-the-badge&logo=github)](https://koshag0hil.github.io/Portfolio/)
 [![AWS](https://img.shields.io/badge/AWS-Solutions%20Architect-232F3E?style=for-the-badge&logo=amazonwebservices)](https://aws.amazon.com)
 [![DevSecOps](https://img.shields.io/badge/DevSecOps-Engineer-4E5D6C?style=for-the-badge&logo=terraform)](https://www.terraform.io/)
+[![Medium](https://img.shields.io/badge/Medium-Publications-12100E?style=for-the-badge&logo=medium)](https://medium.com/@gohilkosha)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/kosha-gohil)
 
 > **Welcome to the source repository for my personal Cloud & DevSecOps Engineering portfolio.**  
-> Built with HTML5, Tailwind CSS, responsive design, interactive category filtering, and hosted continuously via **GitHub Pages**.
+> Built with HTML5, Tailwind CSS, responsive design, interactive category filtering, technical publications showcase, and hosted continuously via **GitHub Pages**.
 
 🌐 **Live Website**: [https://koshag0hil.github.io/Portfolio/](https://koshag0hil.github.io/Portfolio/)
 
@@ -63,6 +64,23 @@
 
 ---
 
+## ✍️ Technical Publications & Deep-Dives
+
+Articles and architectural guides published on **Medium** ([@gohilkosha](https://medium.com/@gohilkosha)) and featured in leading engineering publications:
+
+1. [**Read the Machine: Linux Debugging Skills That Separate Engineers From Restarters**](https://medium.com/@gohilkosha/read-the-machine-linux-debugging-skills-that-separate-engineers-from-restarters-545e6202299c) (*Towards AWS*)
+   - Core operating system interrogation (`strace`, `tcpdump`, `lsof`, `ss`, `/proc`), inspecting kernel state over dashboard opinions, and preserving forensics before restarting services.
+2. [**Reliability Is a Number: A Practitioner’s Guide to SLOs and Error Budgets**](https://medium.com/@gohilkosha) (*Medium*)
+   - Mathematical SRE frameworks: defining actionable SLIs/SLOs, the 100% reliability fallacy, and utilizing error budget burn rates as automated engineering tripwires.
+3. [**Production Linux Server Hardening & Automated Configuration Platform**](https://medium.com/@gohilkosha) (*Stackademic*)
+   - End-to-end CIS Benchmark Level 1 & 2 automation, zero-bastion AWS Systems Manager Session Manager access over private VPC Endpoints, and modular Terraform IaC.
+4. [**Static Website Hosting on AWS: S3, CloudFront, and CI/CD Explained Simply**](https://medium.com/@gohilkosha) (*AWS in Plain English*)
+   - Securing static websites with Amazon S3, CloudFront Origin Access Control (OAC), edge caching, and keyless GitHub Actions OIDC pipelines.
+5. [**Jenkins for Beginners: CI/CD Automation Demystified**](https://medium.com/@gohilkosha) (*Stackademic*)
+   - Structuring declarative Jenkinsfiles, ephemeral container build agents, and automated test quality gates.
+
+---
+
 ## 🚀 Running Locally
 
 ```bash
@@ -80,5 +98,6 @@ Then open `http://localhost:8000` in your web browser.
 ## 📬 Contact & Connect
 
 - **Email**: gohilkosha19@gmail.com
+- **Medium**: [medium.com/@gohilkosha](https://medium.com/@gohilkosha)
 - **LinkedIn**: [linkedin.com/in/kosha-gohil](https://www.linkedin.com/in/kosha-gohil)
 - **GitHub**: [@KoshaG0hil](https://github.com/KoshaG0hil)
