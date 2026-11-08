@@ -559,7 +559,79 @@
             <button class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-gray-300 text-gray-700 hover:border-accent hover:text-accent bg-white transition-all shadow-sm" data-filter="ai">AI & Chaos Engineering</button>
           </div>
 
-          <div id="projects-grid" class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <div id="projects-grid" class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+
+            <!-- 1. Zero-Secret Workload Identity Federation Mesh -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">SPIFFE/SPIRE &bull; AWS STS OIDC &bull; Zero-Secret</span>
+                  <a href="https://github.com/KoshaG0hil/Zero-Secret-Workload-Identity-Federation-Mesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Zero-Secret Workload Identity Federation Mesh
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Eliminates static IAM access keys and long-lived API secrets across Kubernetes and cloud workloads via kernel cgroup and binary digest attestation.</li>
+                  <li>Implements the SPIFFE/SPIRE standard to mint ephemeral X.509 SVIDs and OIDC JWT-SVIDs signed with RS256 and Subject Alternative Name (SAN) URIs.</li>
+                  <li>Federates with AWS STS (<code>AssumeRoleWithWebIdentity</code>) to mint 15-minute temporary session tokens with automated in-memory rotation and zero secrets on disk.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">SPIFFE/SPIRE &bull; AWS STS &bull; OIDC &bull; Python 3.13 &bull; Terraform &bull; Cryptography</span>
+                <a href="https://github.com/KoshaG0hil/Zero-Secret-Workload-Identity-Federation-Mesh" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- 2. AWS Cloud Data Perimeter Anti-Exfiltration Engine -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Data Perimeter &bull; Anti-Exfiltration &bull; MITRE ATT&amp;CK</span>
+                  <a href="https://github.com/KoshaG0hil/Cloud-Data-Perimeter-AntiExfiltration-Engine" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Cloud Data Perimeter Anti-Exfiltration Engine
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Enforces and continuously validates the AWS Data Perimeter Triad (Identity, Resource, and Network perimeters) across multi-account AWS Organizations.</li>
+                  <li>Synthesizes and enforces strict Service Control Policies (SCPs), S3 Gateway Endpoint policies (<code>aws:ResourceOrgID</code>), and TLS-only S3 bucket resource policies.</li>
+                  <li>Features an automated red-team chaos simulator evaluating 6 MITRE ATT&amp;CK exfiltration vectors (T1567, T1078, T1530) achieving a verified 100% block rate.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">AWS Organizations &bull; VPC Endpoints &bull; S3 Security &bull; SCP &bull; Python &bull; Terraform</span>
+                <a href="https://github.com/KoshaG0hil/Cloud-Data-Perimeter-AntiExfiltration-Engine" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- 3. Autonomous GitOps Continuous Verification & Rollback Controller -->
+            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">GitOps &bull; ArgoCD &bull; Crossplane &bull; Prometheus SLO</span>
+                  <a href="https://github.com/KoshaG0hil/Autonomous-GitOps-Continuous-Verification-Controller" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                  Autonomous GitOps Continuous Verification Controller
+                </h3>
+                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                  <li>Autonomous Kubernetes controller bridging ArgoCD progressive sync waves, Crossplane cloud infrastructure, and Prometheus real-time telemetry.</li>
+                  <li>Continuously evaluates p95/p99 latency bounds, 5xx error budget depletion, and traffic volume during progressive canary steps (10% &rarr; 25% &rarr; 50% &rarr; 100%).</li>
+                  <li>Autonomously intercepts runtime performance regressions and error budget burn, instantly triggering zero-downtime traffic isolation (0%) and automated Git rollback.</li>
+                </ul>
+              </div>
+              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-xs text-gray-500 font-medium">Kubernetes &bull; ArgoCD &bull; Crossplane &bull; Prometheus &bull; Python &bull; Canary Rollback</span>
+                <a href="https://github.com/KoshaG0hil/Autonomous-GitOps-Continuous-Verification-Controller" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
 
             <!-- 1. Zero-Trust Supply Chain eBPF Sentinel -->
             <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">

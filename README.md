@@ -36,7 +36,14 @@
 
 ---
 
-## 📂 Featured Cloud Architectures & Projects
+## 🚀 Featured Cloud Architectures & Projects
+
+1. [**Zero-Secret Workload Identity Federation Mesh**](https://github.com/KoshaG0hil/Zero-Secret-Workload-Identity-Federation-Mesh)
+   - Cryptographic workload attestation using SPIFFE/SPIRE, ephemeral X.509 & RS256 JWT-SVIDs, and AWS STS `AssumeRoleWithWebIdentity` with zero static secrets.
+2. [**Cloud Data Perimeter Anti-Exfiltration Engine**](https://github.com/KoshaG0hil/Cloud-Data-Perimeter-AntiExfiltration-Engine)
+   - AWS Data Perimeter Triad enforcement (`aws:PrincipalOrgID`, `aws:ResourceOrgID`, `aws:sourceVpce`) with red-team chaos exfiltration simulation (MITRE T1567).
+3. [**Autonomous GitOps Continuous Verification Controller**](https://github.com/KoshaG0hil/Autonomous-GitOps-Continuous-Verification-Controller)
+   - Progressive Kubernetes canary verification controller evaluating real-time Prometheus SLOs (p99 latency & error budgets) with automated instant rollback across ArgoCD and Crossplane.
 
 1. [**Zero-Trust Supply Chain eBPF Sentinel**](https://github.com/KoshaG0hil/Zero-Trust-Supply-Chain-eBPF-Sentinel)
    - Kernel-level build sandbox with Linux eBPF syscall tracing, SLSA Level 3 provenance, and Sigstore Cosign admission gates.
