@@ -4,6 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kosha Gohil | Cloud Security & DevSecOps Engineer</title>
+    <meta name="title" content="Kosha Gohil | Cloud Security & DevSecOps Engineer" />
+    <meta
+      name="description"
+      content="Production AWS & GCP Cloud Security, Zero-Secret SPIFFE/SPIRE Identity Federation, Data Perimeter Anti-Exfiltration, eBPF Supply Chain Sentinel, and SRE Observability."
+    />
+    <meta name="keywords" content="Kosha Gohil, Cloud Security Engineer, DevSecOps, AWS Solutions Architect, SRE, SPIFFE, SPIRE, eBPF, Terraform, Kubernetes" />
+    <meta name="author" content="Kosha Gohil" />
+
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://koshag0hil.github.io/Portfolio/" />
+    <meta property="og:title" content="Kosha Gohil | Cloud Security & DevSecOps Engineer" />
+    <meta
+      property="og:description"
+      content="Designing and defending secure production cloud architectures: Zero-Secret Identity Federation, Cloud Data Perimeter, eBPF Sentinel, and Autonomous GitOps Verification."
+    />
+    <meta property="og:image" content="https://koshag0hil.github.io/Portfolio/Images/edge.jpg" />
+
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://koshag0hil.github.io/Portfolio/" />
+    <meta property="twitter:title" content="Kosha Gohil | Cloud Security & DevSecOps Engineer" />
+    <meta
+      property="twitter:description"
+      content="Designing and defending secure production cloud architectures: Zero-Secret Identity Federation, Cloud Data Perimeter, eBPF Sentinel, and Autonomous GitOps Verification."
+    />
+    <meta property="twitter:image" content="https://koshag0hil.github.io/Portfolio/Images/edge.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -550,6 +581,31 @@
             <p class="text-body text-sm mt-3">Production-grade cloud security platforms, zero-trust architectures, and resilience suites.</p>
           </div>
 
+                    <!-- Interactive Search & Live Filter Bar -->
+          <div class="max-w-xl mx-auto mb-6 px-2">
+            <div class="relative flex items-center">
+              <i class="fas fa-search absolute left-4 text-gray-400 text-sm"></i>
+              <input
+                type="text"
+                id="project-search-input"
+                placeholder="Search architectures by keyword (e.g. Terraform, eBPF, STS, ArgoCD, HIPAA...)"
+                class="w-full pl-11 pr-10 py-3 rounded-full border border-gray-300 bg-white text-sm text-heading placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent shadow-sm transition-all"
+                aria-label="Search cloud architecture projects"
+              />
+              <button
+                id="clear-search-btn"
+                class="absolute right-3.5 text-gray-400 hover:text-accent p-1 text-sm hidden transition-colors"
+                title="Clear search"
+                aria-label="Clear search"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div id="search-results-counter" class="text-center text-xs text-gray-500 font-medium mt-2.5 hidden">
+              Showing <span id="matching-count" class="font-bold text-accent">0</span> of <span id="total-count">0</span> cloud architectures
+            </div>
+          </div>
+
           <!-- Project Filter Tabs -->
           <div class="flex flex-wrap justify-center gap-2 mb-12">
             <button class="project-filter-btn active px-4 py-2 rounded-full text-xs font-semibold border border-accent bg-accent text-white transition-all shadow-sm" data-filter="all">All Projects</button>
@@ -560,6 +616,18 @@
           </div>
 
                     <div id="projects-grid" class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <!-- No Results Fallback -->
+            <div id="no-projects-found" class="hidden text-center py-12 col-span-full">
+              <div class="w-16 h-16 rounded-full bg-accent-light text-accent mx-auto flex items-center justify-center text-2xl mb-4">
+                <i class="fas fa-filter-circle-xmark"></i>
+              </div>
+              <h4 class="font-serif text-xl font-bold text-heading mb-2">No Matching Architectures Found</h4>
+              <p class="text-sm text-gray-500 max-w-md mx-auto mb-4">No projects matched your search criteria. Try a broader term like <code>AWS</code>, <code>Zero-Trust</code>, or <code>Kubernetes</code>.</p>
+              <button id="reset-filter-btn" class="btn btn-secondary text-xs px-4 py-2 inline-flex items-center gap-1.5">
+                <i class="fas fa-rotate-left"></i> Reset Search & Filters
+              </button>
+            </div>
+
 
             <!-- 1. Zero-Secret Workload Identity Federation Mesh -->
             <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
@@ -1390,10 +1458,68 @@
         }
 
         
-        // --- Projects Category Filter ---
+        // --- Projects Category Filter & Live Search Bar ---
         const filterBtns = document.querySelectorAll(".project-filter-btn");
         const projectCards = document.querySelectorAll(".project-card");
+        const searchInput = document.getElementById("project-search-input");
+        const clearSearchBtn = document.getElementById("clear-search-btn");
+        const searchCounter = document.getElementById("search-results-counter");
+        const matchingCount = document.getElementById("matching-count");
+        const totalCount = document.getElementById("total-count");
+        const noProjectsFound = document.getElementById("no-projects-found");
+        const resetFilterBtn = document.getElementById("reset-filter-btn");
 
+        let currentCategory = "all";
+        const totalProjects = projectCards.length;
+        if (totalCount) totalCount.textContent = totalProjects;
+
+        function updateProjectVisibility() {
+          const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
+          let visibleCount = 0;
+
+          if (clearSearchBtn) {
+            if (query.length > 0) {
+              clearSearchBtn.classList.remove("hidden");
+            } else {
+              clearSearchBtn.classList.add("hidden");
+            }
+          }
+
+          projectCards.forEach((card) => {
+            const cardCategory = card.getAttribute("data-category");
+            const categoryMatches = (currentCategory === "all" || cardCategory === currentCategory);
+            const cardText = card.innerText.toLowerCase();
+            const searchMatches = (!query || cardText.includes(query));
+
+            if (categoryMatches && searchMatches) {
+              card.style.display = "flex";
+              visibleCount++;
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          // Update Counter
+          if (matchingCount) matchingCount.textContent = visibleCount;
+          if (searchCounter) {
+            if (query.length > 0 || currentCategory !== "all") {
+              searchCounter.classList.remove("hidden");
+            } else {
+              searchCounter.classList.add("hidden");
+            }
+          }
+
+          // Show/Hide No Results State
+          if (noProjectsFound) {
+            if (visibleCount === 0) {
+              noProjectsFound.classList.remove("hidden");
+            } else {
+              noProjectsFound.classList.add("hidden");
+            }
+          }
+        }
+
+        // Category Filter Buttons
         filterBtns.forEach((btn) => {
           btn.addEventListener("click", () => {
             filterBtns.forEach((b) => {
@@ -1403,16 +1529,44 @@
             btn.classList.add("active", "bg-accent", "text-white");
             btn.classList.remove("bg-white", "text-gray-700", "border-gray-300");
 
-            const filter = btn.getAttribute("data-filter");
-            projectCards.forEach((card) => {
-              if (filter === "all" || card.getAttribute("data-category") === filter) {
-                card.style.display = "flex";
-              } else {
-                card.style.display = "none";
-              }
-            });
+            currentCategory = btn.getAttribute("data-filter") || "all";
+            updateProjectVisibility();
           });
         });
+
+        // Search Input Event
+        if (searchInput) {
+          searchInput.addEventListener("input", updateProjectVisibility);
+        }
+
+        // Clear Search Button
+        if (clearSearchBtn) {
+          clearSearchBtn.addEventListener("click", () => {
+            if (searchInput) {
+              searchInput.value = "";
+              searchInput.focus();
+            }
+            updateProjectVisibility();
+          });
+        }
+
+        // Reset Filter & Search Button
+        if (resetFilterBtn) {
+          resetFilterBtn.addEventListener("click", () => {
+            if (searchInput) searchInput.value = "";
+            currentCategory = "all";
+            filterBtns.forEach((b) => {
+              if (b.getAttribute("data-filter") === "all") {
+                b.classList.add("active", "bg-accent", "text-white");
+                b.classList.remove("bg-white", "text-gray-700", "border-gray-300");
+              } else {
+                b.classList.remove("active", "bg-accent", "text-white");
+                b.classList.add("bg-white", "text-gray-700", "border-gray-300");
+              }
+            });
+            updateProjectVisibility();
+          });
+        }
 
         if (contactForm) {
           contactForm.addEventListener("submit", function (e) {

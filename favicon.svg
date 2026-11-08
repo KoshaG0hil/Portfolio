@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2C5248"/>
+      <stop offset="100%" stop-color="#1A332C"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#68D391"/>
+      <stop offset="100%" stop-color="#38A169"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Rounded Shield -->
+  <path d="M32 4 L54 13 C54 36 32 58 32 60 C32 58 10 36 10 13 Z" fill="url(#shieldGrad)" stroke="#4E7A6E" stroke-width="2"/>
+  
+  <!-- Inner Shield Accent Line -->
+  <path d="M32 8 L50 16 C50 34 32 53 32 55 C32 53 14 34 14 16 Z" fill="none" stroke="#68D391" stroke-width="1.2" opacity="0.4"/>
+
+  <!-- Stylized Cloud Symbol -->
+  <path d="M25 36 A6 6 0 0 1 31 30 A8 8 0 0 1 43 31 A6 6 0 0 1 45 42 L24 42 A5 5 0 0 1 25 36 Z" fill="url(#cloudGrad)"/>
+
+  <!-- Security Check / Key Node -->
+  <circle cx="32" cy="27" r="2.5" fill="#FFFFFF"/>
+  <path d="M32 29.5 L32 35" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
