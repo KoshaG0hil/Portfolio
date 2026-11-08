@@ -570,457 +570,467 @@
         </div>
       </section>
 
-            <!-- Projects Section -->
+                  <!-- Projects Section (Decluttered & Streamlined) -->
       <section id="projects" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-8">
-          <div class="text-center max-w-2xl mx-auto mb-10">
-            <div class="text-xs font-bold uppercase tracking-widest text-accent mb-2">Featured Implementations</div>
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-heading">
-              Featured Projects
+          <div class="text-center max-w-3xl mx-auto mb-10">
+            <div class="text-xs font-bold uppercase tracking-widest text-accent mb-2">Architectures & Systems</div>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-heading section-title mb-4">
+              Featured Cloud Architectures
             </h2>
-            <p class="text-body text-sm mt-3">Production-grade cloud security platforms, zero-trust architectures, and resilience suites.</p>
+            <p class="text-body text-sm sm:text-base leading-relaxed">
+              Production-grade zero-trust meshes, anti-exfiltration engines, GitOps verification controllers, and autonomous resilience architectures.
+            </p>
           </div>
 
-                    <!-- Interactive Search & Live Filter Bar -->
-          <div class="max-w-xl mx-auto mb-6 px-2">
-            <div class="relative flex items-center">
-              <i class="fas fa-search absolute left-4 text-gray-400 text-sm"></i>
+          <!-- Unified Responsive Control Bar (Tabs + Search) -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-3 max-w-6xl mx-auto mb-8">
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-1 p-1 bg-white border border-gray-200 rounded-xl shadow-xs">
+              <button class="project-filter-btn active px-3 py-1.5 rounded-lg text-xs font-semibold bg-accent text-white transition-all shadow-xs" data-filter="all">All (15)</button>
+              <button class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600 hover:text-heading transition-all" data-filter="zero-trust">Zero-Trust</button>
+              <button class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600 hover:text-heading transition-all" data-filter="sre">SRE & Ops</button>
+              <button class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600 hover:text-heading transition-all" data-filter="devsecops">DevSecOps</button>
+              <button class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600 hover:text-heading transition-all" data-filter="ai">AI Chaos</button>
+            </div>
+
+            <!-- Compact Search Input -->
+            <div class="relative w-full sm:w-64">
+              <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
               <input
                 type="text"
                 id="project-search-input"
-                placeholder="Search architectures by keyword (e.g. Terraform, eBPF, STS, ArgoCD, HIPAA...)"
-                class="w-full pl-11 pr-10 py-3 rounded-full border border-gray-300 bg-white text-sm text-heading placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent shadow-sm transition-all"
+                placeholder="Search architectures..."
+                class="w-full pl-8 pr-7 py-2 rounded-xl border border-gray-200 bg-white text-xs text-heading placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all shadow-xs"
                 aria-label="Search cloud architecture projects"
               />
-              <button
-                id="clear-search-btn"
-                class="absolute right-3.5 text-gray-400 hover:text-accent p-1 text-sm hidden transition-colors"
-                title="Clear search"
-                aria-label="Clear search"
-              >
+              <button id="clear-search-btn" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-accent p-1 text-xs hidden" title="Clear">
                 <i class="fas fa-times"></i>
               </button>
             </div>
-            <div id="search-results-counter" class="text-center text-xs text-gray-500 font-medium mt-2.5 hidden">
-              Showing <span id="matching-count" class="font-bold text-accent">0</span> of <span id="total-count">0</span> cloud architectures
-            </div>
           </div>
 
-          <!-- Project Filter Tabs -->
-          <div class="flex flex-wrap justify-center gap-2 mb-12">
-            <button class="project-filter-btn active px-4 py-2 rounded-full text-xs font-semibold border border-accent bg-accent text-white transition-all shadow-sm" data-filter="all">All Projects</button>
-            <button class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-gray-300 text-gray-700 hover:border-accent hover:text-accent bg-white transition-all shadow-sm" data-filter="zero-trust">Zero-Trust & Security</button>
-            <button class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-gray-300 text-gray-700 hover:border-accent hover:text-accent bg-white transition-all shadow-sm" data-filter="sre">SRE & GreenOps</button>
-            <button class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-gray-300 text-gray-700 hover:border-accent hover:text-accent bg-white transition-all shadow-sm" data-filter="devsecops">DevSecOps & Platform</button>
-            <button class="project-filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-gray-300 text-gray-700 hover:border-accent hover:text-accent bg-white transition-all shadow-sm" data-filter="ai">AI & Chaos Engineering</button>
-          </div>
-
-                    <div id="projects-grid" class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <!-- No Results Fallback -->
-            <div id="no-projects-found" class="hidden text-center py-12 col-span-full">
-              <div class="w-16 h-16 rounded-full bg-accent-light text-accent mx-auto flex items-center justify-center text-2xl mb-4">
-                <i class="fas fa-filter-circle-xmark"></i>
-              </div>
-              <h4 class="font-serif text-xl font-bold text-heading mb-2">No Matching Architectures Found</h4>
-              <p class="text-sm text-gray-500 max-w-md mx-auto mb-4">No projects matched your search criteria. Try a broader term like <code>AWS</code>, <code>Zero-Trust</code>, or <code>Kubernetes</code>.</p>
-              <button id="reset-filter-btn" class="btn btn-secondary text-xs px-4 py-2 inline-flex items-center gap-1.5">
-                <i class="fas fa-rotate-left"></i> Reset Search & Filters
-              </button>
-            </div>
-
-
-            <!-- 1. Zero-Secret Workload Identity Federation Mesh -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+          <!-- Projects Grid -->
+          <div id="projects-grid" class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            <!-- Zero-Secret Workload Identity Federation Mesh -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300" data-category="zero-trust" data-featured="true">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">SPIFFE/SPIRE &bull; AWS STS OIDC &bull; Zero-Secret</span>
-                  <a href="https://github.com/KoshaG0hil/Zero-Secret-Workload-Identity-Federation-Mesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">SPIFFE/SPIRE &bull; AWS STS OIDC</span>
+                  <a href="https://github.com/KoshaG0hil/Zero-Secret-Workload-Identity-Federation-Mesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Zero-Secret Workload Identity Federation Mesh
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Eliminates static IAM access keys and long-lived API secrets across Kubernetes and cloud workloads via kernel cgroup and binary digest attestation.</li>
-                  <li>Implements the SPIFFE/SPIRE standard to mint ephemeral X.509 SVIDs and OIDC JWT-SVIDs signed with RS256 and Subject Alternative Name (SAN) URIs.</li>
-                  <li>Federates with AWS STS (<code>AssumeRoleWithWebIdentity</code>) to mint 15-minute temporary session tokens with automated in-memory rotation and zero secrets on disk.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Cryptographically verified identity mesh implementing SPIFFE/SPIRE and AWS STS Web Identity Federation. Replaces static IAM keys with ephemeral X.509 and RS256 JWT-SVIDs featuring automated in-memory rotation.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">SPIFFE/SPIRE</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">AWS STS</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">OIDC</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Terraform</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Python</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Zero-Secret</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">SPIFFE/SPIRE &bull; AWS STS &bull; OIDC &bull; Python 3.13 &bull; Terraform &bull; Cryptography</span>
-                <a href="https://github.com/KoshaG0hil/Zero-Secret-Workload-Identity-Federation-Mesh" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Zero-Secret-Workload-Identity-Federation-Mesh" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 2. AWS Cloud Data Perimeter Anti-Exfiltration Engine -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+            <!-- Cloud Data Perimeter Anti-Exfiltration Engine -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300" data-category="zero-trust" data-featured="true">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Data Perimeter &bull; Anti-Exfiltration &bull; MITRE ATT&amp;CK</span>
-                  <a href="https://github.com/KoshaG0hil/Cloud-Data-Perimeter-AntiExfiltration-Engine" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">Data Perimeter &bull; Anti-Exfiltration</span>
+                  <a href="https://github.com/KoshaG0hil/Cloud-Data-Perimeter-AntiExfiltration-Engine" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Cloud Data Perimeter Anti-Exfiltration Engine
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Enforces and continuously validates the AWS Data Perimeter Triad (Identity, Resource, and Network perimeters) across multi-account AWS Organizations.</li>
-                  <li>Synthesizes and enforces strict Service Control Policies (SCPs), S3 Gateway Endpoint policies (<code>aws:ResourceOrgID</code>), and TLS-only S3 bucket resource policies.</li>
-                  <li>Features an automated red-team chaos simulator evaluating 6 MITRE ATT&amp;CK exfiltration vectors (T1567, T1078, T1530) achieving a verified 100% block rate.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Multi-account AWS Data Perimeter Triad enforcement engine combining VPC Endpoint policies, Organizations SCPs, and TLS-only S3 bucket policies with red-team chaos simulation achieving a 100% block rate.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">AWS Organizations</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">VPC Endpoints</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">S3 Security</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">SCP</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Terraform</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">AWS Organizations &bull; VPC Endpoints &bull; S3 Security &bull; SCP &bull; Python &bull; Terraform</span>
-                <a href="https://github.com/KoshaG0hil/Cloud-Data-Perimeter-AntiExfiltration-Engine" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Cloud-Data-Perimeter-AntiExfiltration-Engine" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 3. Autonomous GitOps Continuous Verification & Rollback Controller -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
+            <!-- Autonomous GitOps Continuous Verification Controller -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300" data-category="devsecops" data-featured="true">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">GitOps &bull; ArgoCD &bull; Crossplane &bull; Prometheus SLO</span>
-                  <a href="https://github.com/KoshaG0hil/Autonomous-GitOps-Continuous-Verification-Controller" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">GitOps &bull; ArgoCD &bull; Prometheus</span>
+                  <a href="https://github.com/KoshaG0hil/Autonomous-GitOps-Continuous-Verification-Controller" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Autonomous GitOps Continuous Verification Controller
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Autonomous Kubernetes controller bridging ArgoCD progressive sync waves, Crossplane cloud infrastructure, and Prometheus real-time telemetry.</li>
-                  <li>Continuously evaluates p95/p99 latency bounds, 5xx error budget depletion, and traffic volume during progressive canary steps (10% &rarr; 25% &rarr; 50% &rarr; 100%).</li>
-                  <li>Autonomously intercepts runtime performance regressions and error budget burn, instantly triggering zero-downtime traffic isolation (0%) and automated Git rollback.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Kubernetes controller bridging ArgoCD progressive syncs, Crossplane XRDs, and real-time Prometheus SLO telemetry. Evaluates p99 latency and 5xx error budgets, triggering instant automated canary rollbacks on breach.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Kubernetes</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">ArgoCD</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Crossplane</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Prometheus</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Python</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Canary Rollback</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">Kubernetes &bull; ArgoCD &bull; Crossplane &bull; Prometheus &bull; Python &bull; Canary Rollback</span>
-                <a href="https://github.com/KoshaG0hil/Autonomous-GitOps-Continuous-Verification-Controller" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Autonomous-GitOps-Continuous-Verification-Controller" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 1. Zero-Trust Supply Chain eBPF Sentinel -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+            <!-- Zero-Trust Supply Chain eBPF Sentinel -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300" data-category="zero-trust" data-featured="true">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Kernel Security • eBPF • SLSA v3</span>
-                  <a href="https://github.com/KoshaG0hil/Zero-Trust-Supply-Chain-eBPF-Sentinel" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">Kernel Security &bull; eBPF &bull; SLSA v3</span>
+                  <a href="https://github.com/KoshaG0hil/Zero-Trust-Supply-Chain-eBPF-Sentinel" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Zero-Trust Supply Chain eBPF Sentinel
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Kernel-level software supply chain sandbox intercepting container build-time system calls via Linux eBPF to detect compromised dependencies and unexpected network calls.</li>
-                  <li>Generates cryptographically-verifiable SLSA Level 3 in-toto provenance statements capturing immutable build digests, environment metadata, and git commit SHAs.</li>
-                  <li>Enforces automated Sigstore Cosign signature admission gates in CI/CD pipelines, blocking unsigned or tampered container images from production Kubernetes clusters.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Kernel-level supply chain security sandbox intercepting container build-time system calls via Linux eBPF, emitting SLSA Level 3 in-toto provenance statements, and enforcing Sigstore Cosign admission gates.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Linux eBPF</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">SLSA Level 3</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Sigstore Cosign</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Python 3.12</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Docker</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">Linux eBPF • SLSA v3 • Sigstore Cosign • Python 3.12 • Docker</span>
-                <a href="https://github.com/KoshaG0hil/Zero-Trust-Supply-Chain-eBPF-Sentinel" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Zero-Trust-Supply-Chain-eBPF-Sentinel" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 2. AWS Nitro Enclave Confidential Compute Vault -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+            <!-- AWS Nitro Enclave Confidential Compute Vault -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="zero-trust" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Confidential Compute • Nitro Enclaves</span>
-                  <a href="https://github.com/KoshaG0hil/AWS-Nitro-Enclave-Confidential-Compute-Vault" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">Confidential Compute &bull; Nitro Enclaves</span>
+                  <a href="https://github.com/KoshaG0hil/AWS-Nitro-Enclave-Confidential-Compute-Vault" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   AWS Nitro Enclave Confidential Compute Vault
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Engineered zero-trust hardware memory isolation vault leveraging AWS Nitro Enclaves, eliminating host operator root access, external networking, and persistent storage attack surfaces.</li>
-                  <li>Implemented COSE/CBOR cryptographic attestation document validation against PCR0-2 registers with AWS KMS <code>RecipientAttestation</code> policy decryption.</li>
-                  <li>Constructed a clean-room analytics engine applying differential privacy Laplacian perturbation (ε = 0.5) to enable mathematical query-level privacy guarantees on sensitive records.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Hardware memory isolation vault running in AWS Nitro Enclaves. Enforces COSE/CBOR cryptographic attestation validation against PCR0-2 registers and KMS RecipientAttestation policy decryption.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">AWS Nitro Enclaves</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">KMS Attestation</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">COSE/CBOR</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Differential Privacy</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">AWS Nitro Enclaves • KMS RecipientAttestation • COSE/CBOR • Cryptography</span>
-                <a href="https://github.com/KoshaG0hil/AWS-Nitro-Enclave-Confidential-Compute-Vault" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/AWS-Nitro-Enclave-Confidential-Compute-Vault" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 3. Multi-Region Active-Active Disaster Recovery Mesh -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="sre">
+            <!-- Multi-Region Active-Active Disaster Recovery Mesh -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="sre" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Resilience • Route 53 ARC • DR</span>
-                  <a href="https://github.com/KoshaG0hil/Multi-Region-ActiveActive-Disaster-Recovery-Mesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">Active-Active &bull; Route 53 ARC</span>
+                  <a href="https://github.com/KoshaG0hil/Multi-Region-ActiveActive-Disaster-Recovery-Mesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Multi-Region Active-Active Disaster Recovery Mesh
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Tier-0 enterprise disaster recovery framework across AWS us-east-1 and us-west-2 with sub-second routing control failover via Route 53 Application Recovery Controller (ARC).</li>
-                  <li>Configured DynamoDB Global Tables multi-region active-active replication with real-time replication latency tracking, drift telemetry, and automated health probing.</li>
-                  <li>Engineered automated chaos blackout fault injection with automated health probes achieving verified RTO &lt; 5s and RPO = 0.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Global active-active architecture providing sub-second traffic routing via AWS Route 53 ARC and multi-region DynamoDB Global Tables, achieving verified RTO < 5s and RPO = 0 across regions.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Route 53 ARC</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">DynamoDB Global Tables</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Multi-Region</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Terraform</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">Route 53 ARC • DynamoDB Global Tables • Chaos Engineering • Python • Boto3</span>
-                <a href="https://github.com/KoshaG0hil/Multi-Region-ActiveActive-Disaster-Recovery-Mesh" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Multi-Region-ActiveActive-Disaster-Recovery-Mesh" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 4. Carbon-Aware Autonomous Cloud Scheduler (GreenOps) -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="sre">
+            <!-- Carbon-Aware Autonomous Cloud Scheduler (GreenOps) -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="sre" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">GreenOps • Grid Carbon Telemetry • FinOps</span>
-                  <a href="https://github.com/KoshaG0hil/Carbon-Aware-Autonomous-Cloud-Scheduler" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">GreenOps &bull; Carbon Telemetry</span>
+                  <a href="https://github.com/KoshaG0hil/Carbon-Aware-Autonomous-Cloud-Scheduler" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
-                  Carbon-Aware Autonomous Cloud Scheduler
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
+                  Carbon-Aware Autonomous Cloud Scheduler (GreenOps)
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Integrated real-time electrical grid carbon intensity telemetry (gCO2e/kWh) across regional US power grids (CAISO, ERCOT, PJM, NYISO) to dynamically schedule compute workloads.</li>
-                  <li>Coupled carbon forecasting with AWS Spot market economics and Pareto multi-objective optimization to minimize Scope 2 emissions by 30–65% without SLA latency degradation.</li>
-                  <li>Implemented automated task relocation runbooks and carbon audit telemetry exports to Prometheus and Grafana for enterprise ESG governance.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Carbon-intelligent compute orchestrator ingesting regional grid carbon intensity (gCO2eq/kWh) and Spot economics, reducing cloud Scope 2 emissions by 30%–65% via multi-objective Pareto optimization.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">GreenOps</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Carbon Telemetry</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">AWS Spot</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Pareto Optimization</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Python</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">GreenOps • AWS Spot Economics • Grid Carbon Telemetry • Pareto Multi-Objective</span>
-                <a href="https://github.com/KoshaG0hil/Carbon-Aware-Autonomous-Cloud-Scheduler" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Carbon-Aware-Autonomous-Cloud-Scheduler" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 5. Automated IAM Governance & Configuration Drift Engine -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+            <!-- Automated IAM Governance & Drift Detection Engine -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="zero-trust" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">AWS IAM • Security Governance</span>
-                  <div class="flex items-center gap-3">
-                    <a href="https://koshag0hil.github.io/Automated-IAM-Governance-Engine/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base" title="Live Dashboard"><i class="fas fa-external-link-alt"></i></a>
-                    <a href="https://github.com/KoshaG0hil/Automated-IAM-Governance-Engine" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
-                  </div>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">IAM Security &bull; Drift Detection</span>
+                  <a href="https://github.com/KoshaG0hil/Automated-IAM-Governance-Engine" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Automated IAM Governance & Drift Detection Engine
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Automated IAM governance platform evaluating AWS IAM policies, roles, and trust relationships against least-privilege baselines and CIS AWS Foundations.</li>
-                  <li>Features 14+ privilege escalation signatures, compound anomaly scoring, and CloudTrail EventBridge automation with real-time SNS security alerts.</li>
-                  <li>Deployed an interactive visual audit dashboard and AI triage queues to streamline investigation workflows and eliminate standing administrative privileges.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Continuous IAM least-privilege analysis engine identifying 14+ privilege escalation paths, emitting real-time CloudTrail SNS alerts, and presenting an interactive web-based compliance dashboard.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">IAM Governance</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">CloudTrail</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">EventBridge</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Least-Privilege</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Python</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">Terraform • Python 3.12 • Boto3 • AWS SNS • EventBridge</span>
-                <div class="flex items-center gap-4">
-                  <a href="https://koshag0hil.github.io/Automated-IAM-Governance-Engine/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Automated-IAM-Governance-Engine" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+                <a href="https://koshag0hil.github.io/Automated-IAM-Governance-Engine/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
                     Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
                   </a>
-                  <a href="https://github.com/KoshaG0hil/Automated-IAM-Governance-Engine" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-gray-600 hover:text-accent hover:underline flex items-center gap-1">
-                    View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              </div>
+            </div>
+            <!-- Autonomous AI Cloud Red-Team & Chaos Engine (BAS) -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="ai" data-featured="false">
+              <div>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">AI Red-Team &bull; Chaos Engineering</span>
+                  <a href="https://github.com/KoshaG0hil/Autonomous-AI-Cloud-RedTeam-Chaos-Agent" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
                   </a>
                 </div>
-              </div>
-            </div>
-
-            <!-- 6. Autonomous AI Cloud Red-Team & Chaos Engine (BAS) -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="ai">
-              <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Agentic AI • Breach Simulation • MITRE ATT&CK</span>
-                  <a href="https://github.com/KoshaG0hil/Autonomous-AI-Cloud-RedTeam-Chaos-Agent" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
-                </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
-                  Autonomous AI Cloud Red-Team & Chaos Engine
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
+                  Autonomous AI Cloud Red-Team & Chaos Engine (BAS)
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Agentic AI adversary emulation platform utilizing ReAct reasoning loops and NetworkX graph traversal to discover multi-hop lateral movement paths across cloud assets.</li>
-                  <li>Maps security posture directly against MITRE ATT&CK for Cloud (Initial Access through Exfiltration) and quantitatively calculates blast radius scores.</li>
-                  <li>Auto-generates self-healing Terraform code and OPA policies to remediate discovered toxic combinations without manual security intervention.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  ReAct agent-driven breach and attack simulation (BAS) framework traversing multi-hop cloud attack graphs, quantifying blast radius, and auto-synthesizing self-healing Terraform remediation.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">AI Agents</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">ReAct Loop</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Attack Graphs</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Terraform</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Cloud Chaos</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">ReAct AI Loop • NetworkX • MITRE ATT&CK Cloud • Terraform • Python</span>
-                <a href="https://github.com/KoshaG0hil/Autonomous-AI-Cloud-RedTeam-Chaos-Agent" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Autonomous-AI-Cloud-RedTeam-Chaos-Agent" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 7. Post-Quantum Cloud Cryptography Sentinel -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+            <!-- Post-Quantum Cloud Cryptography Sentinel -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="zero-trust" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Post-Quantum Crypto • NIST FIPS 203</span>
-                  <a href="https://github.com/KoshaG0hil/Post-Quantum-Cloud-Cryptography-Sentinel" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">NIST FIPS 203 &bull; Post-Quantum</span>
+                  <a href="https://github.com/KoshaG0hil/Post-Quantum-Cloud-Cryptography-Sentinel" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Post-Quantum Cloud Cryptography Sentinel
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Evaluates AWS CloudFront, ALB, KMS, and S3 encryption posture against NIST FIPS 203 (ML-KEM) and CNSA 2.0 quantum-resistant cryptography standards.</li>
-                  <li>Calculates "Harvest Now, Decrypt Later" (HNDL) exposure risk using Quantum Vulnerability Index (QVI) algorithm modeling data shelf-life against quantum timelines.</li>
-                  <li>Auto-generates hybrid classical/post-quantum Terraform migration modules and KMS key rotation policies for quantum-resilient infrastructure.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Cryptographic readiness scanner assessing cloud architectures against quantum Harvest-Now-Decrypt-Later (HNDL) attacks with automated migration paths to NIST FIPS 203 (ML-KEM) hybrid keys.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">NIST FIPS 203</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">ML-KEM</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Post-Quantum Crypto</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">AWS KMS</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Python</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">NIST FIPS 203 ML-KEM • CNSA 2.0 • AWS KMS • Terraform • Python</span>
-                <a href="https://github.com/KoshaG0hil/Post-Quantum-Cloud-Cryptography-Sentinel" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Post-Quantum-Cloud-Cryptography-Sentinel" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 8. Enterprise Amazon EKS Zero-Trust Security Mesh -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="zero-trust">
+            <!-- Enterprise Amazon EKS Zero-Trust Security Mesh -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="zero-trust" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Kubernetes • Cilium eBPF • OPA Gatekeeper</span>
-                  <a href="https://github.com/KoshaG0hil/Enterprise-EKS-ZeroTrust-Security-Mesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">Amazon EKS &bull; Cilium eBPF</span>
+                  <a href="https://github.com/KoshaG0hil/Enterprise-EKS-ZeroTrust-Security-Mesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Enterprise Amazon EKS Zero-Trust Security Mesh
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Hardened Amazon EKS clusters with Cilium eBPF L7 network microsegmentation, enforcing strict egress/ingress policies and mutual workload identity authentication.</li>
-                  <li>Implemented OPA Gatekeeper declarative admission controller policies blocking root containers, host namespaces, and unverified registry images.</li>
-                  <li>Integrated runtime Falco kernel event detection with automated threat containment pods to instantly isolate compromised containers.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Hardened multi-tenant EKS cluster featuring Cilium eBPF L7 network policies, OPA Gatekeeper admission webhooks, AWS KMS envelope encryption, and Falco runtime anomaly quarantine.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Amazon EKS</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Cilium eBPF</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">OPA Gatekeeper</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Falco</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Terraform</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">Amazon EKS • Cilium eBPF • OPA Gatekeeper • Falco • Helm • Terraform</span>
-                <a href="https://github.com/KoshaG0hil/Enterprise-EKS-ZeroTrust-Security-Mesh" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Enterprise-EKS-ZeroTrust-Security-Mesh" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 9. Secure CI/CD & Infrastructure Automation Pipeline -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
+            <!-- Secure CI/CD & Infrastructure Automation Pipeline -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="devsecops" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">DevSecOps • Automated Rollback</span>
-                  <a href="https://github.com/KoshaG0hil/Secure-CICD-Infrastructure-Automation-Pipeline" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">DevSecOps &bull; Shift-Left SAST</span>
+                  <a href="https://github.com/KoshaG0hil/Secure-CICD-Infrastructure-Automation-Pipeline" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Secure CI/CD & Infrastructure Automation Pipeline
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Enterprise 6-stage DevSecOps pipeline embedding SAST (Bandit), secret leak detection (Gitleaks), dependency CVE auditing (pip-audit), and OPA Rego IaC validation.</li>
-                  <li>Automated Trivy container vulnerability scanning, blocking deployment progression when critical CVEs or root user violations are identified.</li>
-                  <li>Constructed canary health probes auditing `/healthz` and response latency SLAs, triggering self-healing rollbacks in &lt; 2.0s with automated post-mortem incident generation.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Production GitOps delivery pipeline integrating Trivy container scanning, Checkov IaC security gates, OPA Rego policies, and sub-2s automated canary rollback mechanisms.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">GitHub Actions</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Trivy</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Checkov</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">OPA Rego</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Docker</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Terraform</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">GitHub Actions • Terraform • ECS Fargate • OPA Rego • Docker</span>
-                <a href="https://github.com/KoshaG0hil/Secure-CICD-Infrastructure-Automation-Pipeline" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Secure-CICD-Infrastructure-Automation-Pipeline" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 10. Serverless Malware Detection & File Quarantine Pipeline -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
+            <!-- Serverless Malware Detection & Quarantine Pipeline -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="devsecops" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Serverless • Threat Detection</span>
-                  <a href="https://github.com/KoshaG0hil/serverless-virus-scanning-system" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">Serverless &bull; ClamAV Antivirus</span>
+                  <a href="https://github.com/KoshaG0hil/serverless-virus-scanning-system" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Serverless Malware Detection & Quarantine Pipeline
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Designed dual-cloud event-driven antivirus scanning architecture using AWS Lambda and Google Cloud Run with ClamAV to inspect uploaded objects in real time.</li>
-                  <li>Enforced 3-tier zero-trust quarantine isolation (Unprocessed, Clean, Quarantined) with automated threat isolation and SNS/PubSub security alerts.</li>
-                  <li>Integrated DynamoDB tracking for immutable audit logging, scan execution metrics, and virus signature definitions synchronization.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Dual-cloud event-driven antivirus pipeline running ClamAV on AWS Lambda & Google Cloud Run. Enforces 3-tier zero-trust quarantine isolation and real-time SNS security alerts.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">AWS Lambda</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Google Cloud Run</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">ClamAV</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">S3 Quarantine</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Event-Driven</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">AWS Lambda • ClamAV • Amazon S3 • DynamoDB • Google Cloud Run</span>
-                <a href="https://github.com/KoshaG0hil/serverless-virus-scanning-system" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/serverless-virus-scanning-system" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 11. Bastionless CIS Linux Hardening & SSM Architecture -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
+            <!-- Bastionless CIS Linux Hardening & SSM Architecture -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="devsecops" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Linux Hardening • AWS SSM • Ansible</span>
-                  <a href="https://github.com/KoshaG0hil/Project-2-linux-hardening" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">CIS Benchmark &bull; AWS SSM</span>
+                  <a href="https://github.com/KoshaG0hil/Project-2-linux-hardening" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   Bastionless CIS Linux Hardening & SSM Architecture
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Automated Center for Internet Security (CIS) Benchmark Level 1 & 2 server hardening across Ubuntu and Amazon Linux using modular Ansible playbooks.</li>
-                  <li>Eliminated public SSH ports and bastion jump hosts by establishing private AWS Systems Manager (SSM) Session Manager access over private VPC Endpoints.</li>
-                  <li>Codified infrastructure provisioning in Terraform with automated audit verification scripts testing kernel parameters, PAM, and filesystem permissions.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Automated CIS Benchmark Level 1 & 2 hardening platform implemented via Ansible. Replaces exposed bastion hosts with zero-bastion AWS Systems Manager over private VPC Endpoints.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Ansible</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">AWS SSM</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">CIS Benchmark</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">VPC Endpoints</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Linux Security</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">Ansible • AWS Systems Manager • Terraform • EC2 • CIS Benchmarks</span>
-                <a href="https://github.com/KoshaG0hil/Project-2-linux-hardening" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
-                  View Source <i class="fas fa-arrow-right text-[10px]"></i>
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/Project-2-linux-hardening" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
+                
               </div>
             </div>
-
-            <!-- 12. SAMYA — Cloud-Native Health Management Platform -->
-            <div class="project-card card-elevated p-8 flex flex-col justify-between" data-category="devsecops">
+            <!-- SAMYA — Cloud-Native Health Management Platform -->
+            <div class="project-card card-elevated p-6 flex flex-col justify-between transition-all hover:border-gray-300 extended-project hidden" data-category="devsecops" data-featured="false">
               <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-semibold px-2.5 py-1 rounded bg-accent-light text-accent">Production HealthTech • HIPAA</span>
-                  <div class="flex items-center gap-3">
-                    <a href="https://samya.online" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base" title="Live Platform"><i class="fas fa-external-link-alt"></i></a>
-                    <a href="https://github.com/KoshaG0hil/healthrx" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-lg" title="GitHub Repository"><i class="fab fa-github"></i></a>
-                  </div>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-light text-accent">HealthTech &bull; HIPAA &bull; Production</span>
+                  <a href="https://github.com/KoshaG0hil/healthrx" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-accent text-base transition-colors" title="GitHub Repository">
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-heading mb-3">
+                <h3 class="font-serif text-xl font-bold text-heading mb-2 leading-snug">
                   SAMYA — Cloud-Native Health Management Platform
                 </h3>
-                <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
-                  <li>Architecting a production cloud-native health management platform that brings medication tracking, health readings, prescriptions, and health records into a unified platform.</li>
-                  <li>Engineering secure REST APIs, role-based access control (RBAC), and KMS encryption-at-rest aligned with HIPAA and DPDP healthcare data privacy mandates.</li>
-                  <li>Containerized with Docker and monitored via Prometheus, Grafana, and CloudWatch supporting zero-downtime blue/green deployment cutovers for 400–500 daily eRx transactions.</li>
-                </ul>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
+                  Production cloud-native digital health platform managing 400–500 daily eRx transactions. Architected with secure REST APIs, RBAC, KMS encryption-at-rest, and CloudWatch observability.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">Docker</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">HIPAA Compliance</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">RBAC</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">REST APIs</span> <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">CloudWatch</span>
+                </div>
               </div>
-              <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <span class="text-xs text-gray-500 font-medium">Docker • HIPAA Compliance • RBAC • REST APIs • CloudWatch</span>
-                <div class="flex items-center gap-4">
-                  <a href="https://samya.online" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+              <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                <a href="https://github.com/KoshaG0hil/healthrx" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-heading hover:text-accent transition-colors flex items-center gap-1.5">
+                  <span>View Source</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+                <a href="https://samya.online" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
                     Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
                   </a>
-                  <a href="https://github.com/KoshaG0hil/healthrx" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-gray-600 hover:text-accent hover:underline flex items-center gap-1">
-                    View Source <i class="fas fa-arrow-right text-[10px]"></i>
-                  </a>
-                </div>
               </div>
             </div>
 
+            <!-- No Results Fallback -->
+            <div id="no-projects-found" class="hidden text-center py-12 col-span-full">
+              <div class="w-14 h-14 rounded-full bg-accent-light text-accent mx-auto flex items-center justify-center text-xl mb-3">
+                <i class="fas fa-filter-circle-xmark"></i>
+              </div>
+              <h4 class="font-serif text-lg font-bold text-heading mb-1.5">No Matching Architectures Found</h4>
+              <p class="text-xs text-gray-500 max-w-sm mx-auto mb-4">Try searching for broader keywords like <code>AWS</code>, <code>Terraform</code>, or <code>eBPF</code>.</p>
+              <button id="reset-filter-btn" class="btn btn-secondary text-xs px-3.5 py-1.5 inline-flex items-center gap-1.5">
+                <i class="fas fa-rotate-left"></i> Reset Filter & Search
+              </button>
+            </div>
           </div>
 
-          <div class="text-center mt-12">
-            <a
-              href="https://github.com/KoshaG0hil"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary"
-            >
-              <i class="fab fa-github"></i> View All 30 Repositories on GitHub
-            </a>
+          <!-- Clean Expand / Collapse Toggle -->
+          <div class="text-center mt-10">
+            <button id="toggle-projects-btn" class="btn btn-secondary inline-flex items-center gap-2 text-xs font-semibold px-6 py-2.5 shadow-xs hover:border-accent hover:text-accent transition-all">
+              <span id="toggle-btn-text">View All 15 Cloud Architectures & Labs (+11 more)</span>
+              <i id="toggle-btn-icon" class="fas fa-chevron-down text-[10px]"></i>
+            </button>
           </div>
         </div>
       </section>
 
-            <!-- Publications / Medium Articles Section -->
+      <!-- Publications / Medium Articles Section -->
       <section id="publications" class="py-20 bg-white border-t border-gray-100">
         <div class="container mx-auto px-4 sm:px-8">
           <div class="text-center max-w-2xl mx-auto mb-16">
@@ -1458,65 +1468,93 @@
         }
 
         
-        // --- Projects Category Filter & Live Search Bar ---
+        // --- Projects Filter, Search & Minimalist Toggle Engine ---
         const filterBtns = document.querySelectorAll(".project-filter-btn");
         const projectCards = document.querySelectorAll(".project-card");
         const searchInput = document.getElementById("project-search-input");
         const clearSearchBtn = document.getElementById("clear-search-btn");
-        const searchCounter = document.getElementById("search-results-counter");
-        const matchingCount = document.getElementById("matching-count");
-        const totalCount = document.getElementById("total-count");
         const noProjectsFound = document.getElementById("no-projects-found");
         const resetFilterBtn = document.getElementById("reset-filter-btn");
+        const toggleProjectsBtn = document.getElementById("toggle-projects-btn");
+        const toggleBtnText = document.getElementById("toggle-btn-text");
+        const toggleBtnIcon = document.getElementById("toggle-btn-icon");
 
         let currentCategory = "all";
-        const totalProjects = projectCards.length;
-        if (totalCount) totalCount.textContent = totalProjects;
+        let isExpanded = false;
 
         function updateProjectVisibility() {
           const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
-          let visibleCount = 0;
+          const hasActiveQuery = query.length > 0;
+          const hasCategoryFilter = currentCategory !== "all";
+          const isFiltering = hasActiveQuery || hasCategoryFilter;
 
+          // Toggle Clear button visibility
           if (clearSearchBtn) {
-            if (query.length > 0) {
-              clearSearchBtn.classList.remove("hidden");
-            } else {
-              clearSearchBtn.classList.add("hidden");
-            }
+            clearSearchBtn.classList.toggle("hidden", !hasActiveQuery);
           }
+
+          let visibleCount = 0;
 
           projectCards.forEach((card) => {
             const cardCategory = card.getAttribute("data-category");
+            const isFeatured = card.getAttribute("data-featured") === "true";
             const categoryMatches = (currentCategory === "all" || cardCategory === currentCategory);
             const cardText = card.innerText.toLowerCase();
             const searchMatches = (!query || cardText.includes(query));
 
+            // If active filter/search: show all matches. If idle: respect isExpanded for featured top 4
+            let shouldShow = false;
             if (categoryMatches && searchMatches) {
+              if (isFiltering || isExpanded || isFeatured) {
+                shouldShow = true;
+              }
+            }
+
+            if (shouldShow) {
               card.style.display = "flex";
+              card.classList.remove("hidden");
               visibleCount++;
             } else {
               card.style.display = "none";
+              card.classList.add("hidden");
             }
           });
 
-          // Update Counter
-          if (matchingCount) matchingCount.textContent = visibleCount;
-          if (searchCounter) {
-            if (query.length > 0 || currentCategory !== "all") {
-              searchCounter.classList.remove("hidden");
+          // Manage Expand/Collapse Toggle Button
+          if (toggleProjectsBtn && toggleProjectsBtn.parentElement) {
+            if (isFiltering) {
+              // Hide expand button when searching or filtering categories
+              toggleProjectsBtn.parentElement.classList.add("hidden");
             } else {
-              searchCounter.classList.add("hidden");
+              toggleProjectsBtn.parentElement.classList.remove("hidden");
+              if (isExpanded) {
+                toggleBtnText.textContent = "Show Top 4 Flagships Only";
+                toggleBtnIcon.className = "fas fa-chevron-up text-[10px]";
+              } else {
+                toggleBtnText.textContent = "View All 15 Cloud Architectures & Labs (+11 more)";
+                toggleBtnIcon.className = "fas fa-chevron-down text-[10px]";
+              }
             }
           }
 
-          // Show/Hide No Results State
+          // Show/Hide No Results Fallback
           if (noProjectsFound) {
-            if (visibleCount === 0) {
-              noProjectsFound.classList.remove("hidden");
-            } else {
-              noProjectsFound.classList.add("hidden");
-            }
+            noProjectsFound.classList.toggle("hidden", visibleCount > 0);
           }
+        }
+
+        // Toggle Expand/Collapse
+        if (toggleProjectsBtn) {
+          toggleProjectsBtn.addEventListener("click", () => {
+            isExpanded = !isExpanded;
+            updateProjectVisibility();
+            if (!isExpanded) {
+              const projectsSection = document.getElementById("projects");
+              if (projectsSection) {
+                projectsSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          });
         }
 
         // Category Filter Buttons
@@ -1524,10 +1562,10 @@
           btn.addEventListener("click", () => {
             filterBtns.forEach((b) => {
               b.classList.remove("active", "bg-accent", "text-white");
-              b.classList.add("bg-white", "text-gray-700", "border-gray-300");
+              b.classList.add("text-gray-600");
             });
             btn.classList.add("active", "bg-accent", "text-white");
-            btn.classList.remove("bg-white", "text-gray-700", "border-gray-300");
+            btn.classList.remove("text-gray-600");
 
             currentCategory = btn.getAttribute("data-filter") || "all";
             updateProjectVisibility();
@@ -1555,18 +1593,22 @@
           resetFilterBtn.addEventListener("click", () => {
             if (searchInput) searchInput.value = "";
             currentCategory = "all";
+            isExpanded = false;
             filterBtns.forEach((b) => {
               if (b.getAttribute("data-filter") === "all") {
                 b.classList.add("active", "bg-accent", "text-white");
-                b.classList.remove("bg-white", "text-gray-700", "border-gray-300");
+                b.classList.remove("text-gray-600");
               } else {
                 b.classList.remove("active", "bg-accent", "text-white");
-                b.classList.add("bg-white", "text-gray-700", "border-gray-300");
+                b.classList.add("text-gray-600");
               }
             });
             updateProjectVisibility();
           });
         }
+
+        // Initial setup
+        updateProjectVisibility();
 
         if (contactForm) {
           contactForm.addEventListener("submit", function (e) {
